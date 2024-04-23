@@ -68,7 +68,13 @@ public class MoveRemi : MonoBehaviour
 
     private bool IsMoving()
     {
+        Keyboard keyboard = Keyboard.current;
         Gamepad gamepad = Gamepad.current;
+
+        if (keyboard != null && !keyboard.anyKey.isPressed)
+        {
+            return false;
+        }
 
         if (gamepad != null && gamepad.leftStick.ReadValue().magnitude < 0.1f)
         {
