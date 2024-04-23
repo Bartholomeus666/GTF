@@ -73,9 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  CooldownTime: 0.2
   JumpForce: 5
-  Gravity: 3
+  Gravity: 2
 --- !u!1 &9034577833722250261
 GameObject:
   m_ObjectHideFlags: 0

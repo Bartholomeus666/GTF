@@ -59,11 +59,12 @@ public class MoveRemi : MonoBehaviour
         {
             _yValue = 0f;
         }
+
         if (!IsMoving())
         {
-            _moveVector = new Vector3(0f, _yValue, 0f);
+            _moveVector.x = 0f;
+            _moveVector.z = 0f;
         }
-
     }
 
     private bool IsMoving()
