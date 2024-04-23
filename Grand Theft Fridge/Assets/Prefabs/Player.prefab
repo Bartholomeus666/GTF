@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4731091647376274336}
-  - component: {fileID: 192439684625775454}
+  - component: {fileID: 4606307305126406337}
   - component: {fileID: -943980850779595060}
   m_Layer: 0
   m_Name: Player
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 1021160148710705425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &192439684625775454
+--- !u!143 &4606307305126406337
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  CooldownTime: 0
-  JumpForce: 0
+  CooldownTime: 0.2
+  JumpForce: 5
   Gravity: 3
 --- !u!1 &9034577833722250261
 GameObject:

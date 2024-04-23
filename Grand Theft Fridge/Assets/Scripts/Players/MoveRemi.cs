@@ -15,10 +15,6 @@ public class MoveRemi : MonoBehaviour
 
     private float _yValue;
 
-    private bool _hasDoubleJumped;
-    private float _doubleJumpTimer;
-    [SerializeField] private float CooldownTime;
-
     [SerializeField] private float JumpForce;
     [SerializeField] private float Gravity;
 
@@ -35,6 +31,11 @@ public class MoveRemi : MonoBehaviour
     {
         _inputAction.Enable();
         _inputAction.Player.Movement.performed += MovePlayer;
+        if (_characterController.isGrounded) 
+        {
+            Debug.Log("grounded");
+            _inputAction.Player.Jump.performed += Jump;
+        }      
     }
 
 
@@ -57,24 +58,17 @@ public class MoveRemi : MonoBehaviour
         if (_characterController.isGrounded) 
         {
             _yValue = 0f;
-            _hasDoubleJumped = false;
-            _doubleJumpTimer = 0f;
         }
         if (!IsMoving())
         {
-            _moveVector = Vector3.zero;
+            _moveVector = new Vector3(0f, _yValue, 0f);
         }
+
     }
 
     private bool IsMoving()
     {
-        Keyboard keyboard = Keyboard.current;
         Gamepad gamepad = Gamepad.current;
-
-        if (keyboard != null && !keyboard.anyKey.isPressed)
-        {
-            return false;
-        }
 
         if (gamepad != null && gamepad.leftStick.ReadValue().magnitude < 0.1f)
         {
@@ -83,16 +77,16 @@ public class MoveRemi : MonoBehaviour
         else { return true; }
     }
 
-    private void Jump()
+    private void Jump(InputAction.CallbackContext context)
     {
+        Debug.Log("Jumped");
+
         _yValue += JumpForce;
     }
-
     private void FixedUpdate()
     {
         _yValue -= Gravity;
 
         _characterController.Move(new Vector3(_moveVector.x, _yValue, _moveVector.z) * Time.deltaTime);
     }
-
 }
