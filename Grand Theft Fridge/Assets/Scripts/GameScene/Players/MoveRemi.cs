@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,12 +16,9 @@ public class MoveRemi : MonoBehaviour
 
     private float _yValue;
 
-    private bool _hasDoubleJumped;
-    private float _doubleJumpTimer;
-    [SerializeField] private float CooldownTime;
-
     [SerializeField] private float JumpForce;
     [SerializeField] private float Gravity;
+    private bool _falling;
 
     private CustomInput _inputAction;
 
@@ -33,19 +31,17 @@ public class MoveRemi : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputAction.Enable();
-        _inputAction.Player.Movement.performed += MovePlayer;
+        _inputAction.Enable();    
     }
 
 
     private void OnDisable()
     {
         _inputAction.Disable();
-        _inputAction.Player.Movement.performed -= MovePlayer;
     }
 
 
-    private void MovePlayer(InputAction.CallbackContext context)
+    public void MovePlayer(InputAction.CallbackContext context)
     {
         _moveVector.x = context.ReadValue<Vector2>().x * Speed;
         _moveVector.z = context.ReadValue<Vector2>().y * Speed;
@@ -54,27 +50,21 @@ public class MoveRemi : MonoBehaviour
 
     private void Update()
     {
-        if (_characterController.isGrounded) 
+        if (_characterController.isGrounded)
         {
-            _yValue = 0f;
-            _hasDoubleJumped = false;
-            _doubleJumpTimer = 0f;
+
         }
-        if (!IsMoving())
-        {
-            _moveVector = Vector3.zero;
-        }
+
+        //    if (!IsMoving())
+        //    {
+        //        _moveVector.x = 0f;
+        //        _moveVector.z = 0f;
+        //    
     }
 
     private bool IsMoving()
     {
-        Keyboard keyboard = Keyboard.current;
         Gamepad gamepad = Gamepad.current;
-
-        if (keyboard != null && !keyboard.anyKey.isPressed)
-        {
-            return false;
-        }
 
         if (gamepad != null && gamepad.leftStick.ReadValue().magnitude < 0.1f)
         {
@@ -83,16 +73,19 @@ public class MoveRemi : MonoBehaviour
         else { return true; }
     }
 
-    private void Jump()
+    public void Jump(InputAction.CallbackContext context)
     {
-        _yValue += JumpForce;
+        if (_characterController.isGrounded)
+        {
+            _yValue = 0;
+            Debug.Log("Jumped");
+            _yValue += JumpForce;
+        }
     }
-
     private void FixedUpdate()
     {
-        _yValue -= Gravity;
+        _yValue -= Gravity * Time.deltaTime;
 
         _characterController.Move(new Vector3(_moveVector.x, _yValue, _moveVector.z) * Time.deltaTime);
     }
-
 }

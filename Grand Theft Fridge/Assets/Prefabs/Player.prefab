@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4731091647376274336}
-  - component: {fileID: 192439684625775454}
+  - component: {fileID: 4606307305126406337}
   - component: {fileID: -943980850779595060}
+  - component: {fileID: 6750947657141372452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -32,9 +33,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1021160148710705425}
+  - {fileID: 7465018345722448846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &192439684625775454
+--- !u!143 &4606307305126406337
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,9 +75,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  CooldownTime: 0
-  JumpForce: 0
-  Gravity: 3
+  JumpForce: 15
+  Gravity: 40
+--- !u!114 &6750947657141372452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430508918521327620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 62875b61a323416479640e417504bfe1, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -943980850779595060}
+        m_TargetAssemblyTypeName: MoveRemi, Assembly-CSharp
+        m_MethodName: MovePlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ae9fb74-8a91-44c3-9edc-5168bee88ccc
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -943980850779595060}
+        m_TargetAssemblyTypeName: MoveRemi, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 86767640-1d94-4a8e-903b-ac407c945524
+    m_ActionName: Player/Jump
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 5780976819742181214}
 --- !u!1 &9034577833722250261
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,3 +246,74 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &964119975308417018
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4731091647376274336}
+    m_Modifications:
+    - target: {fileID: 2390127700983540630, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 3430508918521327620}
+    - target: {fileID: 7295952206192016263, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_Name
+      value: PlayerCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.993262
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11589068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 13.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+--- !u!20 &5780976819742181214 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6726998830402621604, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+  m_PrefabInstance: {fileID: 964119975308417018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7465018345722448846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+  m_PrefabInstance: {fileID: 964119975308417018}
+  m_PrefabAsset: {fileID: 0}
