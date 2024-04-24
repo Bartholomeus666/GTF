@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,7 @@ public class MoveRemi : MonoBehaviour
 
     [SerializeField] private float JumpForce;
     [SerializeField] private float Gravity;
+    private bool _falling;
 
     private CustomInput _inputAction;
 
@@ -29,24 +31,17 @@ public class MoveRemi : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputAction.Enable();
-        _inputAction.Player.Movement.performed += MovePlayer;
-        if (_characterController.isGrounded) 
-        {
-            Debug.Log("grounded");
-            _inputAction.Player.Jump.performed += Jump;
-        }      
+        _inputAction.Enable();    
     }
 
 
     private void OnDisable()
     {
         _inputAction.Disable();
-        _inputAction.Player.Movement.performed -= MovePlayer;
     }
 
 
-    private void MovePlayer(InputAction.CallbackContext context)
+    public void MovePlayer(InputAction.CallbackContext context)
     {
         _moveVector.x = context.ReadValue<Vector2>().x * Speed;
         _moveVector.z = context.ReadValue<Vector2>().y * Speed;
@@ -55,16 +50,16 @@ public class MoveRemi : MonoBehaviour
 
     private void Update()
     {
-        if (_characterController.isGrounded) 
+        if (_characterController.isGrounded)
         {
-            _yValue = 0f;
+
         }
 
-        if (!IsMoving())
-        {
-            _moveVector.x = 0f;
-            _moveVector.z = 0f;
-        }
+        //    if (!IsMoving())
+        //    {
+        //        _moveVector.x = 0f;
+        //        _moveVector.z = 0f;
+        //    
     }
 
     private bool IsMoving()
@@ -78,15 +73,18 @@ public class MoveRemi : MonoBehaviour
         else { return true; }
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log("Jumped");
-
-        _yValue += JumpForce;
+        if (_characterController.isGrounded)
+        {
+            _yValue = 0;
+            Debug.Log("Jumped");
+            _yValue += JumpForce;
+        }
     }
     private void FixedUpdate()
     {
-        _yValue -= Gravity;
+        _yValue -= Gravity * Time.deltaTime;
 
         _characterController.Move(new Vector3(_moveVector.x, _yValue, _moveVector.z) * Time.deltaTime);
     }
