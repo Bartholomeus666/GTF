@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 65369409}
   serializedVersion: 2
   m_LocalRotation: {x: -0.08993732, y: -0, z: -0, w: 0.9959474}
-  m_LocalPosition: {x: 0.03999901, y: -0.011594176, z: 3.508841}
+  m_LocalPosition: {x: 0.03999901, y: 0.55, z: 3.45}
   m_LocalScale: {x: 10.15, y: 7.212399, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -615,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159526905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1298309621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 3430508918521327620, guid: 985606b3434993a489d559ecd5e03523, type: 3}
   m_SplitScreen: 1
   m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: 4
+  m_FixedNumberOfSplitScreens: -1
   m_SplitScreenRect:
     serializedVersion: 2
     x: 0

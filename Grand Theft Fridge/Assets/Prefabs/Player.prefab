@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1021160148710705425}
-  - {fileID: 7465018345722448846}
+  - {fileID: 178633227204574603}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4606307305126406337
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8b4e2091805f5468cd9a19f9e68510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 7
   JumpForce: 15
   Gravity: 40
 --- !u!114 &6750947657141372452
@@ -134,11 +134,15 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 86767640-1d94-4a8e-903b-ac407c945524
     m_ActionName: Player/Jump
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cee40afc-f2d6-484d-9f95-db8a122bdfc7
+    m_ActionName: Player/BasicAttack[/XInputControllerWindows/buttonEast,/DualSenseGamepadHID/buttonEast,/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 5780976819742181214}
+  m_Camera: {fileID: 3880295912862626075}
 --- !u!1 &9034577833722250261
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +250,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &964119975308417018
+--- !u!1001 &7530736942440145343
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -307,13 +311,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
---- !u!20 &5780976819742181214 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6726998830402621604, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
-  m_PrefabInstance: {fileID: 964119975308417018}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7465018345722448846 stripped
+--- !u!4 &178633227204574603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7707959828950441012, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
-  m_PrefabInstance: {fileID: 964119975308417018}
+  m_PrefabInstance: {fileID: 7530736942440145343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3880295912862626075 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6726998830402621604, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+  m_PrefabInstance: {fileID: 7530736942440145343}
   m_PrefabAsset: {fileID: 0}
