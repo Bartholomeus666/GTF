@@ -18,7 +18,9 @@ public class MoveRemi : MonoBehaviour
 
     [SerializeField] private float JumpForce;
     [SerializeField] private float Gravity;
-    private bool _falling;
+    
+
+    public Animator Animator;
 
     private CustomInput _inputAction;
 
@@ -55,11 +57,13 @@ public class MoveRemi : MonoBehaviour
 
         }
 
-        //    if (!IsMoving())
-        //    {
-        //        _moveVector.x = 0f;
-        //        _moveVector.z = 0f;
-        //    
+        if(IsMoving())
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(-_moveVector);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
+        }
+
+        Animator.SetBool("isRunning", IsMoving());
     }
 
     private bool IsMoving()

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8418600474865340107, guid: 5e82929db670f5246a9c2058682e3b73, type: 3}
   zValue: -10
-  extraYValue: 3
+  extraYValue: 4
 --- !u!114 &-4015730576820717
 MonoBehaviour:
   m_ObjectHideFlags: 0

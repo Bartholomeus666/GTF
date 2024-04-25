@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private bool _attackPossible;
+    private GameObject OtherPlayer;
+
+    private void OnTriggerStay(Collider other)
     {
-        
+        if(other.tag == "Player")
+        {
+            OtherPlayer = other.gameObject;
+            _attackPossible = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _attackPossible = false;
+        OtherPlayer = null;
+    }
+    public void BasicAttackPerformed()
+    {
+        if (_attackPossible)
+        {
+            OtherPlayer.transform.position = Vector3.zero;
+        }
     }
 }
