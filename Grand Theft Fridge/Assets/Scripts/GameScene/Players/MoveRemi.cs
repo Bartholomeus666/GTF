@@ -24,11 +24,14 @@ public class MoveRemi : MonoBehaviour
 
     private CustomInput _inputAction;
 
+    public bool KnockedOut;
+
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _inputAction = new CustomInput();
+        KnockedOut = false;
     }
 
     private void OnEnable()
@@ -45,8 +48,12 @@ public class MoveRemi : MonoBehaviour
 
     public void MovePlayer(InputAction.CallbackContext context)
     {
-        _moveVector.x = context.ReadValue<Vector2>().x * Speed;
-        _moveVector.z = context.ReadValue<Vector2>().y * Speed;
+        if (!KnockedOut)
+        {
+            _moveVector.x = context.ReadValue<Vector2>().x * Speed;
+            _moveVector.z = context.ReadValue<Vector2>().y * Speed;
+        }
+
     }
 
 

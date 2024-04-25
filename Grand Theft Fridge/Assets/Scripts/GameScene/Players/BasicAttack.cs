@@ -7,6 +7,7 @@ public class BasicAttack : MonoBehaviour
 
     private bool _attackPossible;
     private GameObject OtherPlayer;
+    private MoveRemi _movementScript;
 
     private void OnTriggerStay(Collider other)
     {
@@ -14,6 +15,7 @@ public class BasicAttack : MonoBehaviour
         {
             OtherPlayer = other.gameObject;
             _attackPossible = true;
+            _movementScript = OtherPlayer.GetComponent<MoveRemi>();
         }
     }
 
@@ -26,7 +28,9 @@ public class BasicAttack : MonoBehaviour
     {
         if (_attackPossible)
         {
-            OtherPlayer.transform.position = Vector3.zero;
+            //Destroy(OtherPlayer.gameObject);
+            //OtherPlayer.gameObject.transform.position = Vector3.zero;
+            _movementScript.KnockedOut = true;
         }
     }
 }
