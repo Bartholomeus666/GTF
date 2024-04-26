@@ -55,11 +55,27 @@ public class MoveRemi : MonoBehaviour
 
         }
 
+<<<<<<< Updated upstream
         //    if (!IsMoving())
         //    {
         //        _moveVector.x = 0f;
         //        _moveVector.z = 0f;
         //    
+=======
+
+        if(_characterController.isGrounded && _yValue < 0)
+        {
+            _yValue = 0;
+        }
+
+        if(IsMoving())
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(-_moveVector);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
+        }
+
+        Animator.SetBool("isRunning", IsMoving());
+>>>>>>> Stashed changes
     }
 
     private bool IsMoving()
