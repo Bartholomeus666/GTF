@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 65369409}
   serializedVersion: 2
   m_LocalRotation: {x: -0.08993732, y: -0, z: -0, w: 0.9959474}
-  m_LocalPosition: {x: 0.03999901, y: 1, z: 5.8}
+  m_LocalPosition: {x: -0.3, y: 1, z: 5.8}
   m_LocalScale: {x: 19.049519, y: 13.53623, z: 1.8768}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -376,6 +376,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &744153443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744153445}
+  - component: {fileID: 744153444}
+  m_Layer: 0
+  m_Name: OpenFridgeEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &744153444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744153443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2329e39bd0816b24898c480c989b8c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveCamera:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1614305460}
+        m_TargetAssemblyTypeName: GoToMainCamera, Assembly-CSharp
+        m_MethodName: ZoomOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  MeterIsFull: 0
+--- !u!4 &744153445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744153443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6805694, y: -18.810263, z: 84.2478}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &825977260
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1041,7 @@ GameObject:
   - component: {fileID: 1614305459}
   - component: {fileID: 1614305458}
   - component: {fileID: 1614305457}
+  - component: {fileID: 1614305460}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1056,13 +1117,27 @@ Transform:
   m_GameObject: {fileID: 1614305456}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08993732, y: 0, z: 0, w: 0.9959474}
-  m_LocalPosition: {x: -23.3, y: 9.4, z: -15.3}
+  m_LocalPosition: {x: 4, y: 27.7, z: -40.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 65369413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10.32, y: 0, z: 0}
+--- !u!114 &1614305460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614305456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c046a78af6d4a448b5e5923b569dbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  BackGround: {fileID: 65369409}
 --- !u!1 &1747314387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6184908805675030670, guid: 6d245eb8bb648bf4093dfaba8e145924, type: 3}
@@ -1437,3 +1512,4 @@ SceneRoots:
   - {fileID: 1148665544}
   - {fileID: 5382504627586307186}
   - {fileID: 2052785896}
+  - {fileID: 744153445}
