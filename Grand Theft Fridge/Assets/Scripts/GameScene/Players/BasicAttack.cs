@@ -28,8 +28,6 @@ public class BasicAttack : MonoBehaviour
     {
         if (_attackPossible)
         {
-            //Destroy(OtherPlayer.gameObject);
-            //OtherPlayer.gameObject.transform.position = Vector3.zero;
             _movementScript.KnockedOut = true;
         }
     }

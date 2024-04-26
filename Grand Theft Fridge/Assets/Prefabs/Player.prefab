@@ -146,6 +146,8 @@ MonoBehaviour:
   JumpForce: 15
   Gravity: 40
   Animator: {fileID: 2729275341042433630}
+  KnockedOut: 0
+  knockedOutCooldown: 3
 --- !u!114 &7102607714715442911
 MonoBehaviour:
   m_ObjectHideFlags: 0

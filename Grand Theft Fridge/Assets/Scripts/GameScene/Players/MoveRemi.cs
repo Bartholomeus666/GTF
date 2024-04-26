@@ -25,6 +25,8 @@ public class MoveRemi : MonoBehaviour
     private CustomInput _inputAction;
 
     public bool KnockedOut;
+    private float _knockedOuttimer;
+    [SerializeField] private float knockedOutCooldown;
 
 
     private void Awake()
@@ -59,9 +61,14 @@ public class MoveRemi : MonoBehaviour
 
     private void Update()
     {
-        if (_characterController.isGrounded)
+        if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
         {
-
+            _knockedOuttimer += Time.deltaTime;
+        }
+        else if(KnockedOut && _knockedOuttimer > knockedOutCooldown)
+        {
+            _knockedOuttimer = 0;
+            KnockedOut = false;
         }
 
         if(IsMoving())
