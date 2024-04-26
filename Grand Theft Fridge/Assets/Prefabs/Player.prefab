@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257768223429235369}
-  - component: {fileID: 7281258022928875798}
   - component: {fileID: 9206992632783386889}
+  - component: {fileID: 1967469722730687504}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -27,14 +27,26 @@ Transform:
   m_GameObject: {fileID: 2340984953855920878}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.12, z: -2.77}
+  m_LocalPosition: {x: 0, y: 1.12, z: -3.655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 151822332360093077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7281258022928875798
-SphereCollider:
+--- !u!114 &9206992632783386889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340984953855920878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f2daef92d70cc44ad07f6811cef647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &1967469722730687504
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,21 +63,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9206992632783386889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340984953855920878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f2daef92d70cc44ad07f6811cef647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 0.61
+  m_Height: 2.25
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.54, z: 0.69}
 --- !u!1 &8418600474865340107
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +223,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cee40afc-f2d6-484d-9f95-db8a122bdfc7
     m_ActionName: Player/BasicAttack[/XInputControllerWindows/buttonEast,/DualSenseGamepadHID/buttonEast,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9206992632783386889}
+        m_TargetAssemblyTypeName: BasicAttack, Assembly-CSharp
+        m_MethodName: GrabPerformed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 75ca1e50-768b-4550-b319-252b4c829f34
+    m_ActionName: Player/Grab[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
