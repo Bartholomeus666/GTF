@@ -38,7 +38,7 @@ public class MoveRemi : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputAction.Enable();    
+        _inputAction.Enable();
     }
 
 
@@ -61,6 +61,12 @@ public class MoveRemi : MonoBehaviour
 
     private void Update()
     {
+
+        if(_characterController.isGrounded && _yValue < 0)
+        {
+            _yValue = 0;
+        }
+
         if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
         {
             _knockedOuttimer += Time.deltaTime;
