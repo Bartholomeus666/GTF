@@ -1,71 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2340984953855920878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1257768223429235369}
-  - component: {fileID: 7281258022928875798}
-  - component: {fileID: 9206992632783386889}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1257768223429235369
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340984953855920878}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.12, z: -2.77}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 151822332360093077}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7281258022928875798
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340984953855920878}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9206992632783386889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340984953855920878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f2daef92d70cc44ad07f6811cef647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8418600474865340107
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +14,7 @@ GameObject:
   - component: {fileID: 7102607714715442911}
   - component: {fileID: -6527114116424263454}
   - component: {fileID: 2056190050520420829}
+  - component: {fileID: -5252596565667519365}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -101,7 +36,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1734406886489291733}
-  - {fileID: 1257768223429235369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1029193890362070967
@@ -142,12 +76,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8b4e2091805f5468cd9a19f9e68510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveVector: {x: 0, y: 0, z: 0}
   Speed: 8
   JumpForce: 15
   Gravity: 40
   Animator: {fileID: 2729275341042433630}
   KnockedOut: 0
-  knockedOutCooldown: 3
+  knockedOutCooldown: 0.5
 --- !u!114 &7102607714715442911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +142,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/DualSenseGamepadHID/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9206992632783386889}
+      - m_Target: {fileID: -5252596565667519365}
         m_TargetAssemblyTypeName: BasicAttack, Assembly-CSharp
         m_MethodName: BasicAttackPerformed
         m_Mode: 1
@@ -221,6 +156,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cee40afc-f2d6-484d-9f95-db8a122bdfc7
     m_ActionName: Player/BasicAttack[/XInputControllerWindows/buttonEast,/DualSenseGamepadHID/buttonEast,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5252596565667519365}
+        m_TargetAssemblyTypeName: BasicAttack, Assembly-CSharp
+        m_MethodName: GrabPerformed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 75ca1e50-768b-4550-b319-252b4c829f34
+    m_ActionName: Player/Grab[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -251,6 +202,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92179ce10140b56439022452b298c6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5252596565667519365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418600474865340107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f2daef92d70cc44ad07f6811cef647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickUpRadius: 1
+  ForwardOffset: 2
+  PushForce: 10
 --- !u!1001 &2277520288748018750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -281,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -293,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
