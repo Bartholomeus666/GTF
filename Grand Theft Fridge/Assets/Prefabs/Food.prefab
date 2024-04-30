@@ -49,7 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grabbed: 0
   Player: {fileID: 7884054098723626677}
-  yOffset: 1
+  yOffset: 1.02
+  zOffset: 1
 --- !u!65 &4284628054541301934
 BoxCollider:
   m_ObjectHideFlags: 0

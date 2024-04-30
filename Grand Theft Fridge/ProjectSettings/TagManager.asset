@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - SoundMeter
   layers:
   - Default
   - TransparentFX

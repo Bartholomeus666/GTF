@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraEvent : MonoBehaviour
+public class SoundMeterEvents : MonoBehaviour
 {
     [SerializeField] private UnityEvent MoveCamera;
+    [SerializeField] private UnityEvent StartTimer;
 
-    public bool MeterIsFull;
+    [SerializeField] private FillUpMeter MeterBoolScript;
 
 
     private void Update()
@@ -16,9 +17,10 @@ public class CameraEvent : MonoBehaviour
     }
     public void MeterFilled()
     {
-        if (MeterIsFull)
+        if (MeterBoolScript.MeterFilled)
         {
             MoveCamera.Invoke();
+            StartTimer.Invoke();
         }
     }
 }

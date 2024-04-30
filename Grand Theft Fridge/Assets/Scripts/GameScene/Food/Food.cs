@@ -9,11 +9,13 @@ public class Food : MonoBehaviour
     public Transform Player;
 
     [SerializeField] private float yOffset;
+    [SerializeField] private float zOffset;
+
     private void Update()
     {
         if (Grabbed)
         {
-            transform.position = new Vector3(Player.position.x, Player.position.y + yOffset, Player.position.z);
+            transform.position = new Vector3(Player.position.x + Player.forward.x, Player.position.y + yOffset, Player.position.z + Player.forward.z + zOffset);
         }
     }
 }

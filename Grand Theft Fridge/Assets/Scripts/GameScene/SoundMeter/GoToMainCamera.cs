@@ -7,15 +7,14 @@ public class GoToMainCamera : MonoBehaviour
     public Camera Camera;
     public GameObject BackGround;
 
+    public GameObject UISplitscreen;
 
-    private void Start()
-    {
-        Camera = GetComponent<Camera>();
-    }
 
     public void ZoomOut()
     {
         Camera.depth = 1;
         BackGround.SetActive(false);
+
+        UISplitscreen.SetActive(false);
     }
 }

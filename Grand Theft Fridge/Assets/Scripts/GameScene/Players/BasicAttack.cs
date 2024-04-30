@@ -1,59 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
 {
-
-    private bool _attackPossible;
-    private GameObject OtherPlayer;
-    private MoveRemi _movementScript;
-
-    private bool _grabPossible;
     private Food _foodScript;
+    [SerializeField] private float PickUpRadius = 2;
+    [SerializeField] private float ForwardOffset = 2;
+    [SerializeField] private float PushForce = 2;
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            OtherPlayer = other.gameObject;
-            _attackPossible = true;
-            _movementScript = OtherPlayer.GetComponent<MoveRemi>();
-        }
-        else if(other.tag == "Interactable")
-        {
-            Debug.Log("found food!");
 
-            OtherPlayer = other.gameObject;
-            _grabPossible = true;
-            _foodScript = OtherPlayer.GetComponent<Food>();
-        }
-    }
-    private void OnTriggerExit(Collider other)
+    private GameObject _soundMeter;
+    private FillUpMeter _fillUpMeterScript;
+
+    private bool _isHolding = false;
+
+    private void Start()
     {
-        _attackPossible = false;
-        _grabPossible = false;
+        _soundMeter = GameObject.FindGameObjectWithTag("SoundMeter");
+        _fillUpMeterScript = _soundMeter.GetComponent<FillUpMeter>();
     }
-    private void Update()
-    {
-        _attackPossible = false;
-        OtherPlayer = null;
-    }
+
+
     public void BasicAttackPerformed()
     {
-        if (_attackPossible)
+        Debug.Log("Attacking");
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
+
+        for (int i = 0; i < colliders.Length; i++)
         {
-            _movementScript.KnockedOut = true;
+            Collider c = colliders[i];
+
+            if (c.tag == "Player")
+            {
+                Debug.Log("Opponent attacked");
+
+                MoveRemi moveScript=  c.gameObject.GetComponent<MoveRemi>();
+
+                moveScript.KnockedOut = true;
+                moveScript.MoveVector = transform.forward * PushForce;
+                _fillUpMeterScript.AddSound(10);
+            }
         }
     }
 
     public void GrabPerformed()
     {
-        if(_grabPossible)
+        Debug.Log("Grabbing");
+        if(!_isHolding)
         {
-            _foodScript.Grabbed = true;
-            _foodScript.Player = this.gameObject.transform;
+            Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
+        
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                Collider c = colliders[i];
+
+                if (c.tag == "Interactable")
+                {
+                    Debug.Log("Food found!");
+
+                    _isHolding = true;
+                    Food foodScript = c.gameObject.GetComponent<Food>();
+                    if(!foodScript.Grabbed)
+                    {
+                        foodScript.Grabbed = true;
+                        foodScript.Player = this.transform;
+                        _fillUpMeterScript.AddSound(5);
+                    }
+
+                }
+            }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
     }
 }

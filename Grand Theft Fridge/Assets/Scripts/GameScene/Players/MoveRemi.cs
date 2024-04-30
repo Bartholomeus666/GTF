@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class MoveRemi : MonoBehaviour
 {
 
-    private Vector3 _moveVector;
+    public Vector3 MoveVector;
     [SerializeField]
     private float Speed;
 
@@ -36,24 +36,12 @@ public class MoveRemi : MonoBehaviour
         KnockedOut = false;
     }
 
-    private void OnEnable()
-    {
-        _inputAction.Enable();
-    }
-
-
-    private void OnDisable()
-    {
-        _inputAction.Disable();
-    }
-
-
     public void MovePlayer(InputAction.CallbackContext context)
     {
         if (!KnockedOut)
         {
-            _moveVector.x = context.ReadValue<Vector2>().x * Speed;
-            _moveVector.z = context.ReadValue<Vector2>().y * Speed;
+            MoveVector.x = context.ReadValue<Vector2>().x * Speed;
+            MoveVector.z = context.ReadValue<Vector2>().y * Speed;
         }
 
     }
@@ -75,11 +63,13 @@ public class MoveRemi : MonoBehaviour
         {
             _knockedOuttimer = 0;
             KnockedOut = false;
+
+            MoveVector = Vector3.zero;
         }
 
         if(IsMoving())
         {
-            Quaternion targetRotation = Quaternion.LookRotation(-_moveVector);
+            Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
         }
 
@@ -110,6 +100,6 @@ public class MoveRemi : MonoBehaviour
     {
         _yValue -= Gravity * Time.deltaTime;
 
-        _characterController.Move(new Vector3(_moveVector.x, _yValue, _moveVector.z) * Time.deltaTime);
+        _characterController.Move(new Vector3(MoveVector.x, _yValue, MoveVector.z) * Time.deltaTime);
     }
 }
