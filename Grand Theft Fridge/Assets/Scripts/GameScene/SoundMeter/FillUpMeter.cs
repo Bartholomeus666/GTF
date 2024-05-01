@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class FillUpMeter : MonoBehaviour
 {
     [SerializeField] private int maxSound;
-    [SerializeField] private int currentSound;
+    public int currentSound;
     public Image Mask;
 
     public bool MeterFilled = false;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - SoundMeter
+  - Invisible
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - TargetForHuman
+  - Invisible Objects
   - 
   - 
   - 

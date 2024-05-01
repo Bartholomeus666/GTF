@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732662387981043029}
   - component: {fileID: 7466547783066231951}
+  - component: {fileID: -2739813573931602801}
   m_Layer: 0
   m_Name: HideEvent
   m_TagString: Untagged
@@ -45,3 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 0}
+  LookingForRats:
+    m_PersistentCalls:
+      m_Calls: []
+  timerRunning: 0
+--- !u!114 &-2739813573931602801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646344930470465562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928dfae975f9c2b4f9aa8e9853f58802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

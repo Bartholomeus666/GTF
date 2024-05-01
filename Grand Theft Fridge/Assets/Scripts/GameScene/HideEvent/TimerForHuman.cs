@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class TimerForHuman : MonoBehaviour
 {
     [SerializeField] private TMP_Text TimerText;
+
+    public UnityEvent LookingForRats;
 
     private int timerID = 0;
     private float timerTime = 0;
     private float timerMax = 5;
 
     public bool timerRunning = false;
+    public bool timerMaxedOut = false;
 
     private void Awake()
     {
@@ -23,13 +27,17 @@ public class TimerForHuman : MonoBehaviour
 
     private void Update()
     {
-        if (timerRunning)
+        if (timerRunning && !timerMaxedOut)
         {
             if (timerTime >= timerMax)
             {
                 Debug.Log("You better be hidden little rats!!");
 
                 TimerText.text = string.Empty;
+
+                timerMaxedOut = true;
+
+                LookingForRats.Invoke();
             }
             else
             {
@@ -51,7 +59,7 @@ public class TimerForHuman : MonoBehaviour
             timerTime = 0;
             Debug.Log("Timer started");
         }
-        if(timerRunning)
+        if(timerRunning && !timerMaxedOut)
         {        
             Debug.Log("Timer is already on");
         }

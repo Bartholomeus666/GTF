@@ -17,4 +17,12 @@ public class GoToMainCamera : MonoBehaviour
 
         UISplitscreen.SetActive(false);
     }
+
+    public void ZoomIn()
+    {
+        Camera.depth = -1;
+        BackGround.SetActive(true);
+
+        UISplitscreen.SetActive(true);
+    }
 }

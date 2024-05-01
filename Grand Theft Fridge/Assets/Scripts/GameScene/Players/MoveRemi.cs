@@ -67,7 +67,7 @@ public class MoveRemi : MonoBehaviour
             MoveVector = Vector3.zero;
         }
 
-        if(IsMoving())
+        if(GettingInput())
         {
             Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
@@ -77,6 +77,15 @@ public class MoveRemi : MonoBehaviour
     }
 
     private bool IsMoving()
+    {
+        if(MoveVector.x > 0.05f || MoveVector.z > 0.05f)
+        {
+            return true;
+        }
+        else { return false; }
+    }
+
+    private bool GettingInput()
     {
         Gamepad gamepad = Gamepad.current;
 
