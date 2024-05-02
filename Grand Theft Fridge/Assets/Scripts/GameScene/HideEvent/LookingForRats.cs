@@ -15,6 +15,8 @@ public class LookingForRats : MonoBehaviour
 
     public UnityEvent BackToSplitscreen;
 
+    public Material FoundMaterial;
+
     public void BlockMovement()
     {
         Debug.Log("Players getting assigned");
@@ -56,7 +58,9 @@ public class LookingForRats : MonoBehaviour
 
                 if (hit.collider.gameObject.tag.Equals("Player"))
                 {
-                    Debug.Log("Found you, little rat!");
+                    SkinnedMeshRenderer color = hit.collider.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+
+                    color.material = color.materials[1];
                 }
             }
         }

@@ -217,6 +217,7 @@ MonoBehaviour:
   PickUpRadius: 1
   ForwardOffset: 2
   PushForce: 10
+  IsHoldingFood: 0
 --- !u!1001 &2277520288748018750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,9 +403,17 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1a612bf92c1b27a488728bc7e4fc50bb, type: 2}
+    - target: {fileID: 1630794972795428178, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2832a2884d523594893d647b600dc315, type: 2}
     - target: {fileID: 1777808335996244958, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_Layer
       value: 6
