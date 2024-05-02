@@ -45,7 +45,7 @@ public class TimerForHuman : MonoBehaviour
 
                 timerID = (int)timerTime;
 
-                TimerText.text = $"{timerID}";  
+                TimerText.text = $"HIDE!\n{5 - timerID}";  
             }
         }
         else { timerTime = 0; } 

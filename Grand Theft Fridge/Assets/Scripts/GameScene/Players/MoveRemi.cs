@@ -18,6 +18,8 @@ public class MoveRemi : MonoBehaviour
 
     [SerializeField] private float JumpForce;
     [SerializeField] private float Gravity;
+
+    [SerializeField] private float Rotation;
     
 
     public Animator Animator;
@@ -70,7 +72,7 @@ public class MoveRemi : MonoBehaviour
         if(GettingInput())
         {
             Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
         }
 
         Animator.SetBool("isRunning", IsMoving());

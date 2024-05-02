@@ -80,6 +80,7 @@ MonoBehaviour:
   Speed: 8
   JumpForce: 15
   Gravity: 40
+  Rotation: 2
   Animator: {fileID: 2729275341042433630}
   KnockedOut: 0
   knockedOutCooldown: 0.5
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f2daef92d70cc44ad07f6811cef647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpRadius: 1
+  PickUpRadius: 1.21
   ForwardOffset: 2
   PushForce: 10
   IsHoldingFood: 0
