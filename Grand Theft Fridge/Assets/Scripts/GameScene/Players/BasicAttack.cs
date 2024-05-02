@@ -39,10 +39,13 @@ public class BasicAttack : MonoBehaviour
                 Debug.Log("Opponent attacked");
 
                 MoveRemi moveScript=  c.gameObject.GetComponent<MoveRemi>();
+                BasicAttack grabbedScript= c.gameObject.GetComponent<BasicAttack>();
+
+                grabbedScript.IsHoldingFood = false;
 
                 moveScript.KnockedOut = true;
                 moveScript.MoveVector = transform.forward * PushForce;
-                _fillUpMeterScript.AddSound(10);
+                _fillUpMeterScript.AddSound(5);
             }
         }
     }
@@ -67,7 +70,7 @@ public class BasicAttack : MonoBehaviour
                     if(!foodScript.Grabbed)
                     {
                         foodScript.Grabbed = true;
-                        foodScript.Player = this.transform;
+                        foodScript.Player = this.gameObject;
                         _fillUpMeterScript.AddSound(5);
                     }
 
