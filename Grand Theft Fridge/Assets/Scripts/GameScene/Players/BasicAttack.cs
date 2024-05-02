@@ -15,7 +15,7 @@ public class BasicAttack : MonoBehaviour
     private GameObject _soundMeter;
     private FillUpMeter _fillUpMeterScript;
 
-    private bool _isHolding = false;
+    public bool IsHoldingFood = false;
 
     private void Start()
     {
@@ -50,7 +50,7 @@ public class BasicAttack : MonoBehaviour
     public void GrabPerformed()
     {
         Debug.Log("Grabbing");
-        if(!_isHolding)
+        if(!IsHoldingFood)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
         
@@ -62,7 +62,7 @@ public class BasicAttack : MonoBehaviour
                 {
                     Debug.Log("Food found!");
 
-                    _isHolding = true;
+                    IsHoldingFood = true;
                     Food foodScript = c.gameObject.GetComponent<Food>();
                     if(!foodScript.Grabbed)
                     {
