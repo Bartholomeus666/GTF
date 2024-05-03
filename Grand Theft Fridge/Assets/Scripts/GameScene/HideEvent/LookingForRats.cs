@@ -60,7 +60,7 @@ public class LookingForRats : MonoBehaviour
                 {
                     SkinnedMeshRenderer color = hit.collider.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
 
-                    color.material = color.materials[1];
+                    color.material = FoundMaterial;
                 }
             }
         }

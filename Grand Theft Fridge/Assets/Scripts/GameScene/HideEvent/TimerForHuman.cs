@@ -36,6 +36,7 @@ public class TimerForHuman : MonoBehaviour
                 TimerText.text = string.Empty;
 
                 timerMaxedOut = true;
+                timerRunning = false;
 
                 LookingForRats.Invoke();
             }
@@ -55,6 +56,7 @@ public class TimerForHuman : MonoBehaviour
     {
         if (!timerRunning)
         {
+            timerMaxedOut = false;
             timerRunning = true;
             timerTime = 0;
             Debug.Log("Timer started");
