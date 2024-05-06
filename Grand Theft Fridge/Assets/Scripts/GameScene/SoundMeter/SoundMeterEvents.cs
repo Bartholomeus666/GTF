@@ -11,6 +11,7 @@ public class SoundMeterEvents : MonoBehaviour
     [SerializeField] private FillUpMeter MeterBoolScript;
     private bool _eventsInvoked = false;
 
+
     public void MeterFilled()
     {
         MoveCamera.Invoke();

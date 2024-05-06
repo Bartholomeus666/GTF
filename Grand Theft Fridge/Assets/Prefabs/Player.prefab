@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 6726998830402621604, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
+  PlayerID: 0
 --- !u!114 &2056190050520420829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
   ForwardOffset: 2
   PushForce: 10
   IsHoldingFood: 0
+  Hand: {fileID: 3674415835242169532}
 --- !u!1001 &2277520288748018750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,8 +378,16 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 706995911843994819, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 706995911843994819, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 706995911843994819, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
+      propertyPath: m_TagString
+      value: Hand
       objectReference: {fileID: 0}
     - target: {fileID: 904158120922489363, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
       propertyPath: m_Layer
@@ -520,5 +530,10 @@ Animator:
 --- !u!4 &1734406886489291733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
+  m_PrefabInstance: {fileID: 2277520288748018750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3674415835242169532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5952275357829949310, guid: 71390c9087baf6a42953f56360d6a5d8, type: 3}
   m_PrefabInstance: {fileID: 2277520288748018750}
   m_PrefabAsset: {fileID: 0}

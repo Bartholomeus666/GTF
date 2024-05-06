@@ -8,6 +8,8 @@ public class SplitscreenUIManager : MonoBehaviour
     public GameObject VerticalLine;
     public GameObject HorizontalLine;
 
+    [SerializeField] private GameObject[] playerPanels = new GameObject[4];
+
     public void DrawingCross()
     {
         _counter++;
@@ -20,5 +22,7 @@ public class SplitscreenUIManager : MonoBehaviour
         {
             HorizontalLine.SetActive(true);
         }
+
+        playerPanels[_counter - 1].SetActive(true);
     }
 }

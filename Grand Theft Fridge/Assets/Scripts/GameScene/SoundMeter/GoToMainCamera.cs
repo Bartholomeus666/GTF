@@ -8,7 +8,7 @@ public class GoToMainCamera : MonoBehaviour
     public GameObject BackGround;
 
     public GameObject UISplitscreen;
-    public GameObject UIScoreAndMeter;
+
 
     private GameObject[] _players = new GameObject[4];
     public void ZoomOut()
@@ -17,7 +17,6 @@ public class GoToMainCamera : MonoBehaviour
         BackGround.SetActive(false);
 
         UISplitscreen.SetActive(false);
-        UIScoreAndMeter.SetActive(false);
     }
 
     public void ZoomIn()
@@ -26,7 +25,6 @@ public class GoToMainCamera : MonoBehaviour
         BackGround.SetActive(true);
 
         UISplitscreen.SetActive(true);
-        UIScoreAndMeter.SetActive(true);
 
         _players = GameObject.FindGameObjectsWithTag("Player");
 

@@ -17,6 +17,7 @@ public class TimerForHuman : MonoBehaviour
     public bool timerRunning = false;
     public bool timerMaxedOut = false;
 
+    public GameObject UIScoreAndMeter;
     private void Awake()
     {
         TimerText.text = string.Empty;
@@ -38,6 +39,8 @@ public class TimerForHuman : MonoBehaviour
                 timerMaxedOut = true;
                 timerRunning = false;
 
+                UIScoreAndMeter.SetActive(true);
+
                 LookingForRats.Invoke();
             }
             else
@@ -56,6 +59,8 @@ public class TimerForHuman : MonoBehaviour
     {
         if (!timerRunning)
         {
+            UIScoreAndMeter.SetActive(false);
+
             timerMaxedOut = false;
             timerRunning = true;
             timerTime = 0;

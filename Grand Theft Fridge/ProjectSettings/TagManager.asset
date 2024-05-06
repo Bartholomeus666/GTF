@@ -7,6 +7,7 @@ TagManager:
   - Interactable
   - SoundMeter
   - Invisible
+  - Hand
   layers:
   - Default
   - TransparentFX

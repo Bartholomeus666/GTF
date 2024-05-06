@@ -16,6 +16,7 @@ public class BasicAttack : MonoBehaviour
     private FillUpMeter _fillUpMeterScript;
 
     public bool IsHoldingFood = false;
+    public GameObject Hand;
 
     private void Start()
     {
@@ -70,6 +71,8 @@ public class BasicAttack : MonoBehaviour
                     if(!foodScript.Grabbed)
                     {
                         foodScript.Grabbed = true;
+                        //c.transform.position = Hand.transform.position;
+                        //foodScript.Player = Hand;
                         foodScript.Player = this.gameObject;
                         _fillUpMeterScript.AddSound(5);
                     }
