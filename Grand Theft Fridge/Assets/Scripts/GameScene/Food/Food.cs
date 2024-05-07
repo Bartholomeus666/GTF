@@ -13,23 +13,31 @@ public class Food : MonoBehaviour
     [SerializeField] private float yOffset;
     [SerializeField] private float zOffset;
 
-    
+    private Rigidbody _rb;
+    private Collider _collider;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
+    }
 
     private void Update()
     {
         if (Grabbed)
         {
-            //transform.position = new Vector3(Player.transform.position.x + Player.transform.forward.x, Player.transform.position.y + yOffset, Player.transform.position.z + Player.transform.forward.z + zOffset);
-            transform.position = Player.transform.position + Player.transform.TransformDirection(new Vector3(0, 1.2f, 1.2f));
+            _rb.isKinematic = true;
+            _collider.isTrigger = true;
 
-            //transform.parent = Player.transform;
+            transform.position = Player.transform.position + Player.transform.TransformDirection(new Vector3(0, 1.2f, 1.2f));
 
             _grabScript = Player.GetComponentInParent<BasicAttack>();
 
             if (!_grabScript.IsHoldingFood)
             {
+                _rb.isKinematic = false;
+                _collider.isTrigger = false;
                 Grabbed = false;
-                //transform.parent = null;
             }
         }
         else {Player = this.gameObject;}
