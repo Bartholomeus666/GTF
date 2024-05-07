@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094113404cb93ea4f90eaa193f1a13ec, type: 3}
+  m_Name: FoodSkins
+  m_EditorClassIdentifier: 
+  Skins:
+  - Worth: 1
+    Skin: {fileID: 8121859059762542750, guid: 19f555ed371a337409bcebe47eec94e0, type: 3}
+  - Worth: 2
+    Skin: {fileID: 5181281975955995946, guid: ab7f4436f658d2b4cad325e381aee89d, type: 3}
+  - Worth: 3
+    Skin: {fileID: 7459970419696492895, guid: 18a16d4b1d713d0469db4ed2b2131f74, type: 3}
