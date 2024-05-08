@@ -13,6 +13,7 @@ public class FillUpMeter : MonoBehaviour
 
     public bool MeterFilled = false;
 
+    [SerializeField] private UnityEvent SoundMeterFilled;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class FillUpMeter : MonoBehaviour
         if(currentSound >= maxSound)
         {
             MeterFilled = true;
+            SoundMeterFilled.Invoke();
         }
 
         GetCurrentFill();
@@ -31,8 +33,8 @@ public class FillUpMeter : MonoBehaviour
 
     private void GetCurrentFill()
     {
-        float fillAnount = (float)currentSound / (float)maxSound;
-        Mask.fillAmount = fillAnount;
+        float fillAmount = (float)currentSound / (float)maxSound;
+        Mask.fillAmount = fillAmount;
     }
 
     public void AddSound(int amountOfSound)

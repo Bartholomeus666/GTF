@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +16,9 @@ public class LookingForRats : MonoBehaviour
 
     public UnityEvent BackToSplitscreen;
 
+    public Material FoundMaterial;
+
+    [SerializeField] private GameObject[] LifeUI = new GameObject[4];   
     public void BlockMovement()
     {
         Debug.Log("Players getting assigned");
@@ -56,7 +60,18 @@ public class LookingForRats : MonoBehaviour
 
                 if (hit.collider.gameObject.tag.Equals("Player"))
                 {
-                    Debug.Log("Found you, little rat!");
+                    GameObject hitPlayer = hit.collider.gameObject;
+                    SpawnAndAssign playerIdScript = hitPlayer.GetComponent<SpawnAndAssign>();
+
+                    LiveManager losingLifeScript = LifeUI[playerIdScript.PlayerID - 1].GetComponent<LiveManager>();
+                    if (losingLifeScript.LoseLife())
+                    {
+                       MoveRemi moveScript = hitPlayer.GetComponent<MoveRemi>();
+
+                        moveScript.RemiGotCaught();
+                    }
+
+                    
                 }
             }
         }

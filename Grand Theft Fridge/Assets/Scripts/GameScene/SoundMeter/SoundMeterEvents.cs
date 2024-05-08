@@ -12,20 +12,13 @@ public class SoundMeterEvents : MonoBehaviour
     private bool _eventsInvoked = false;
 
 
-    private void Update()
-    {
-        MeterFilled();
-    }
     public void MeterFilled()
     {
-        if (MeterBoolScript.MeterFilled && !_eventsInvoked)
-        {
-            MoveCamera.Invoke();
-            StartTimer.Invoke();
+        MoveCamera.Invoke();
+        StartTimer.Invoke();
 
-            _eventsInvoked = true;
-            MeterBoolScript.currentSound = 0;
-            MeterBoolScript.MeterFilled = false;
-        }
+        //_eventsInvoked = true;
+        MeterBoolScript.currentSound = 0;
+        MeterBoolScript.MeterFilled = false;
     }
 }

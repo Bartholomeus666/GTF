@@ -10,6 +10,7 @@ public class GoToMainCamera : MonoBehaviour
     public GameObject UISplitscreen;
 
 
+    private GameObject[] _players = new GameObject[4];
     public void ZoomOut()
     {
         Camera.depth = 1;
@@ -24,5 +25,17 @@ public class GoToMainCamera : MonoBehaviour
         BackGround.SetActive(true);
 
         UISplitscreen.SetActive(true);
+
+        _players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject p in _players)
+        {
+            if (p != null)
+            {
+                MoveRemi moveScript = p.GetComponent<MoveRemi>();
+                
+                moveScript.enabled = true;
+            }
+        }
     }
 }

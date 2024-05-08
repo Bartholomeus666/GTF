@@ -15,7 +15,8 @@ public class BasicAttack : MonoBehaviour
     private GameObject _soundMeter;
     private FillUpMeter _fillUpMeterScript;
 
-    private bool _isHolding = false;
+    public bool IsHoldingFood = false;
+    public GameObject Hand;
 
     private void Start()
     {
@@ -39,10 +40,13 @@ public class BasicAttack : MonoBehaviour
                 Debug.Log("Opponent attacked");
 
                 MoveRemi moveScript=  c.gameObject.GetComponent<MoveRemi>();
+                BasicAttack grabbedScript= c.gameObject.GetComponent<BasicAttack>();
+
+                grabbedScript.IsHoldingFood = false;
 
                 moveScript.KnockedOut = true;
                 moveScript.MoveVector = transform.forward * PushForce;
-                _fillUpMeterScript.AddSound(10);
+                _fillUpMeterScript.AddSound(5);
             }
         }
     }
@@ -50,7 +54,7 @@ public class BasicAttack : MonoBehaviour
     public void GrabPerformed()
     {
         Debug.Log("Grabbing");
-        if(!_isHolding)
+        if(!IsHoldingFood)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
         
@@ -62,12 +66,14 @@ public class BasicAttack : MonoBehaviour
                 {
                     Debug.Log("Food found!");
 
-                    _isHolding = true;
+                    IsHoldingFood = true;
                     Food foodScript = c.gameObject.GetComponent<Food>();
                     if(!foodScript.Grabbed)
                     {
                         foodScript.Grabbed = true;
-                        foodScript.Player = this.transform;
+                        //c.transform.position = Hand.transform.position;
+                        //foodScript.Player = Hand;
+                        foodScript.Player = this.gameObject;
                         _fillUpMeterScript.AddSound(5);
                     }
 

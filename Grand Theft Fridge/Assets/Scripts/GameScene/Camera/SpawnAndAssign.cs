@@ -6,6 +6,16 @@ public class SpawnAndAssign : MonoBehaviour
 {
     public Camera PlayerCam;
 
+    public int PlayerID;
+
+    private void Start()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        PlayerID = players.Length;
+    }
+
+
     public void SpawnCamera()
     {
         Instantiate(PlayerCam);
