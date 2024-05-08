@@ -15,6 +15,6 @@ public class Pointer : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 1.55f, Player.transform.position.z);
+        transform.position = new Vector3(Player.transform.position.x - 0.5f, Player.transform.position.y + 2.2f, Player.transform.position.z);
     }
 }
