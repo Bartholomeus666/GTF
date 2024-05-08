@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: FoodSkins
   m_EditorClassIdentifier: 
   Skins:
-  - {fileID: 7459970419696492895, guid: 18a16d4b1d713d0469db4ed2b2131f74, type: 3}
-  - {fileID: 5181281975955995946, guid: ab7f4436f658d2b4cad325e381aee89d, type: 3}
-  - {fileID: 8121859059762542750, guid: 19f555ed371a337409bcebe47eec94e0, type: 3}
+  - Worth: 1
+    Skin: {fileID: 8121859059762542750, guid: 19f555ed371a337409bcebe47eec94e0, type: 3}
+  - Worth: 2
+    Skin: {fileID: 5181281975955995946, guid: ab7f4436f658d2b4cad325e381aee89d, type: 3}
+  - Worth: 3
+    Skin: {fileID: 7459970419696492895, guid: 18a16d4b1d713d0469db4ed2b2131f74, type: 3}

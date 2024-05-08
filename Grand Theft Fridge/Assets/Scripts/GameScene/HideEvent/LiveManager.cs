@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class LiveManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] lives = new GameObject[2];
+    [SerializeField] private GameObject[] lives = new GameObject[3];
     [SerializeField] private GameObject YouDiedPanel;
 
     public bool LoseLife()
@@ -19,6 +19,11 @@ public class LiveManager : MonoBehaviour
         else if (lives[1] != null)
         {
             Destroy(lives[1]);
+            return false;
+        }
+        else if (lives[2] != null)
+        {
+            Destroy(lives[2]);
             YouDiedPanel.SetActive(true);
 
             return true;

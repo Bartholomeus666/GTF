@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RandomizerDatabase : ScriptableObject
 {
-    public GameObject[] Skins = new GameObject[3];
+    public Randomizer[] Skins;
 
     public int SkinsCount
     {
@@ -15,7 +15,7 @@ public class RandomizerDatabase : ScriptableObject
         }
     }
 
-    public GameObject GetRandomizer(int index)
+    public Randomizer GetRandomizer(int index)
     {
         return Skins[index];
     }

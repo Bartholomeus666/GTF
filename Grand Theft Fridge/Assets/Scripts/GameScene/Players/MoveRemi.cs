@@ -70,7 +70,7 @@ public class MoveRemi : MonoBehaviour
                 MoveVector = Vector3.zero;
             }
 
-            if(GettingInput() && IsMoving())
+            if(GettingInput())
             {
                 Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
@@ -83,7 +83,7 @@ public class MoveRemi : MonoBehaviour
 
     private bool IsMoving()
     {
-        if(MoveVector.x != 0 || MoveVector.z != 0)
+        if(MoveVector.x > 0.05f || MoveVector.z > 0.05f)
         {
             return true;
         }

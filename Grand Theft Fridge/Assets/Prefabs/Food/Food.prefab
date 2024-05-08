@@ -50,7 +50,6 @@ MonoBehaviour:
   Player: {fileID: 7493151156248078702}
   yOffset: 1.02
   zOffset: 1
-  RandomizerDB: {fileID: 11400000, guid: fee767b394bc3c7489e1cae174edf841, type: 2}
 --- !u!65 &4284628054541301934
 BoxCollider:
   m_ObjectHideFlags: 0
