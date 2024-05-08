@@ -19,7 +19,7 @@ public class ScoreTrigger : MonoBehaviour
         if (other.gameObject.tag.Equals("Interactable"))
         {
             AssignPoint.Invoke();
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
         else if (other.gameObject.tag.Equals("Player"))
         {

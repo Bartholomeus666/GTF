@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,24 @@ public class SpawnFoodManager : MonoBehaviour
     [SerializeField] private float minDistance;
     
     private Transform _currentSpawnPoint;
-    
+
+    [SerializeField] private GameObject[] foods = new GameObject[3];
+    private GameObject _foodToBeSpawned;
+
+
+    private void Start()
+    {
+        foods = GameObject.FindGameObjectsWithTag("Interactable");
+
+        foods[0].transform.position = spawnPoints[5].transform.position;
+        foods[1].transform.position = spawnPoints[6].transform.position;
+        foods[2].transform.position = spawnPoints[3].transform.position;
+    }
+
     public Transform GetSpawnPoint()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] foods = GameObject.FindGameObjectsWithTag("Interactable");
 
         for(int j = 0; j < spawnPoints.Length; j++)
         {
@@ -23,8 +38,20 @@ public class SpawnFoodManager : MonoBehaviour
                 float dis = Vector3.Distance(spawnPoints[j].position, players[i].transform.position);
 
                 if (dis > minDistance)
-                {
-                    _currentSpawnPoint = spawnPoints[j];
+                {   
+                    for(int k = 0; k < foods.Length; k++)
+                    {
+                        float disToFood = Vector3.Distance(spawnPoints[j].position, foods[k].transform.position);
+
+                        if(disToFood > minDistance)
+                        {
+                            _currentSpawnPoint = spawnPoints[j];
+                        }
+                        else if (disToFood < minDistance)
+                        {
+                            _currentSpawnPoint = null;
+                        }
+                    }
                 }
                 else if (dis < minDistance)
                 {
@@ -35,12 +62,26 @@ public class SpawnFoodManager : MonoBehaviour
             {
                 return _currentSpawnPoint;
             }
+            else { _currentSpawnPoint= spawnPoints[7]; }
         }
         return null;
     }
 
-    //private void Update()
-    //{
-    //    if
-    //}
+    private void Update()
+    {
+        for (int j = 0;j < foods.Length; j++)
+        {
+            if(!foods[j].activeSelf)
+            {
+                _foodToBeSpawned = foods[j];
+                SpawnInactiveFood();
+            }
+        }
+    }
+
+    private void SpawnInactiveFood()
+    {
+        _foodToBeSpawned.transform.position = GetSpawnPoint().position;
+        _foodToBeSpawned.SetActive(true);
+    }
 }

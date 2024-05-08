@@ -21,7 +21,6 @@ public class FoodPool : MonoBehaviour
         for (int i = 0; i < _amountToPool; i++)
         {
             GameObject obj = Instantiate(_food);
-            obj.SetActive(false);
             _foods.Add(obj);
         }
     }
