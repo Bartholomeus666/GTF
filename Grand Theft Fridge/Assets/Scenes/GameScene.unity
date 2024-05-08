@@ -5947,7 +5947,7 @@ Transform:
   m_GameObject: {fileID: 1752088771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 551.97, y: 307.92438, z: -236.28627}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5988,7 +5988,7 @@ MonoBehaviour:
   - {fileID: 1969855380}
   - {fileID: 1170080028}
   - {fileID: 68715359}
-  minDistance: 20
+  minDistance: 7.5
   foods:
   - {fileID: 7459970419696492895, guid: 18a16d4b1d713d0469db4ed2b2131f74, type: 3}
   - {fileID: 5181281975955995946, guid: ab7f4436f658d2b4cad325e381aee89d, type: 3}

@@ -31,40 +31,44 @@ public class SpawnFoodManager : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject[] foods = GameObject.FindGameObjectsWithTag("Interactable");
 
-        for(int j = 0; j < spawnPoints.Length; j++)
+        while(_currentSpawnPoint == null)
         {
+            int spawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+            bool isGood = true;
+
             for (int i = 0; i < players.Length; i++)
             {
-                float dis = Vector3.Distance(spawnPoints[j].position, players[i].transform.position);
+                float dis = Vector3.Distance(spawnPoints[spawnIndex].position, players[i].transform.position);
 
                 if (dis > minDistance)
                 {   
                     for(int k = 0; k < foods.Length; k++)
                     {
-                        float disToFood = Vector3.Distance(spawnPoints[j].position, foods[k].transform.position);
+                        float disToFood = Vector3.Distance(spawnPoints[spawnIndex].position, foods[k].transform.position);
 
                         if(disToFood > minDistance)
                         {
-                            _currentSpawnPoint = spawnPoints[j];
+                            _currentSpawnPoint = spawnPoints[spawnIndex];
                         }
                         else if (disToFood < minDistance)
                         {
-                            _currentSpawnPoint = null;
+                            isGood = false;
                         }
                     }
                 }
                 else if (dis < minDistance)
                 {
-                    _currentSpawnPoint = null;
+                    isGood = false;
                 }
+
             }
-            if (_currentSpawnPoint != null)
+            if (!isGood)
             {
-                return _currentSpawnPoint;
+                _currentSpawnPoint = null;        
             }
-            else { _currentSpawnPoint= spawnPoints[7]; }
         }
-        return null;
+
+        return _currentSpawnPoint;
     }
 
     private void Update()
