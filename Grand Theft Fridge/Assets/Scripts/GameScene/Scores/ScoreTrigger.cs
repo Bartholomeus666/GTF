@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ScoreTrigger : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class ScoreTrigger : MonoBehaviour
     private BasicAttack _grabScript;
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("Interactable"))
         {
@@ -25,12 +26,24 @@ public class ScoreTrigger : MonoBehaviour
         {
             _grabScript = other.GetComponent<BasicAttack>();
 
+            MoveRemi moveScript = other.GetComponent<MoveRemi>();
+            SpawnAndAssign spawn = other.GetComponent<SpawnAndAssign>();
+
             _grabScript.IsHoldingFood = false;
+
+            spawn.Respawn();
+
         }
     }
 
     public void AssignPointEvent()
     {
         Score++;
+
+        if(Score == 10)
+        {
+            PlayerPrefs.SetInt("Winner", PlayerNr);
+            SceneManager.LoadScene("StatsScene");
+        }
     }
 }

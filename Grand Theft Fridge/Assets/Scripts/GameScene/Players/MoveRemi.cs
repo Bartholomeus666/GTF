@@ -77,6 +77,13 @@ public class MoveRemi : MonoBehaviour
             }
 
             Animator.SetBool("isRunning", IsMoving());
+
+
+            _yValue -= Gravity * Time.deltaTime;
+            if (!_IsCaught)
+            {
+                _characterController.Move(new Vector3(MoveVector.x, _yValue, MoveVector.z) * Time.deltaTime);
+            }
         }
 
     }
@@ -112,11 +119,7 @@ public class MoveRemi : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _yValue -= Gravity * Time.deltaTime;
-        if (!_IsCaught)
-        {
-            _characterController.Move(new Vector3(MoveVector.x, _yValue, MoveVector.z) * Time.deltaTime);
-        }
+
     }
 
     public void RemiGotCaught()

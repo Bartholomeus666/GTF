@@ -8,16 +8,34 @@ public class SpawnAndAssign : MonoBehaviour
 
     public int PlayerID;
 
-    private void Start()
+    private SpawnPointData spawnPointData;
+
+    private bool AlreadySpawned = false;
+
+    private void Awake()
     {
+        if(AlreadySpawned)
+            return;
+
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
+
+        spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
 
         PlayerID = players.Length;
+
+        AlreadySpawned = true;
     }
 
 
     public void SpawnCamera()
     {
         Instantiate(PlayerCam);
+    }
+
+    public void Respawn()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, spawnPointData.GetSpawnPoints(PlayerID -1).transform.position, 500);
     }
 }
