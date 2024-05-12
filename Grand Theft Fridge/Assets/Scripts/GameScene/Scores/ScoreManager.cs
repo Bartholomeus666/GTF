@@ -11,6 +11,11 @@ public class ScoreManager : MonoBehaviour
 
     private ScoreTrigger _scoreScript;
 
+    private void Awake()
+    {
+        this.gameObject.tag = "ScoreManager";
+    }
+
     private void Update()
     {
         for (int i = 0; i < Scores.Length; i++)

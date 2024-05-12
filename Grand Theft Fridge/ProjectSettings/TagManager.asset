@@ -9,6 +9,7 @@ TagManager:
   - Invisible
   - Hand
   - Pointer
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
