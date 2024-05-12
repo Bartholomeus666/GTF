@@ -14,11 +14,20 @@ public class ScoreTrigger : MonoBehaviour
 
     private BasicAttack _grabScript;
 
+    private ScoreManager _scoreManager;
+
+
+    private void Start()
+    {
+        _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").gameObject.GetComponent<ScoreManager>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("Interactable"))
         {
+            Debug.Log("Point!");
+
             AssignPoint.Invoke();
             Destroy(other.gameObject);
         }
@@ -27,20 +36,19 @@ public class ScoreTrigger : MonoBehaviour
             _grabScript = other.GetComponent<BasicAttack>();
 
             MoveRemi moveScript = other.GetComponent<MoveRemi>();
-            SpawnAndAssign spawn = other.GetComponent<SpawnAndAssign>();
 
             _grabScript.IsHoldingFood = false;
 
-            spawn.Respawn();
+            moveScript.Respawning = true;
 
         }
     }
 
     public void AssignPointEvent()
     {
-        Score++;
+        _scoreManager.Points[PlayerNr - 1]++;
 
-        if(Score == 10)
+        if(Score == 3)
         {
             PlayerPrefs.SetInt("Winner", PlayerNr);
             SceneManager.LoadScene("StatsScene");

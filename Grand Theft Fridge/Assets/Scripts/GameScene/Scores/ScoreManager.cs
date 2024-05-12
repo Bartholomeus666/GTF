@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public int[] Points = new int[4];
     public TMP_Text[] Scores = new TMP_Text[4];
-    public GameObject[] ScoreTriggers = new GameObject[4];
+    public GameObject[] ScoreTriggers = new GameObject[8];
 
     private ScoreTrigger _scoreScript;
 
@@ -16,7 +17,7 @@ public class ScoreManager : MonoBehaviour
         {
             _scoreScript = ScoreTriggers[i].gameObject.GetComponent<ScoreTrigger>();
 
-            Scores[i].text = "Score: " + _scoreScript.Score;
+            Scores[i].text = "Score: " + Points[i];
         }
     }
 }

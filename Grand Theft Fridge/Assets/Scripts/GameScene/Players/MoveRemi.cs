@@ -14,9 +14,9 @@ public class MoveRemi : MonoBehaviour
 
     private CharacterController _characterController;
 
-    private float _yValue;
+    public float yValue;
 
-    [SerializeField] private float JumpForce;
+    public float JumpForce;
     [SerializeField] private float Gravity;
 
     [SerializeField] private float Rotation;
@@ -30,6 +30,9 @@ public class MoveRemi : MonoBehaviour
 
     private bool _IsCaught = false;
 
+    private SpawnPointData spawnPointData;
+
+    public bool Respawning;
 
     private void Awake()
     {
@@ -53,9 +56,9 @@ public class MoveRemi : MonoBehaviour
     {
         if (!_IsCaught)
         {
-            if (_characterController.isGrounded && _yValue < 0)
+            if (_characterController.isGrounded && yValue < 0)
             {
-                _yValue = 0;
+                yValue = 0;
             }
 
             if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
@@ -79,10 +82,10 @@ public class MoveRemi : MonoBehaviour
             Animator.SetBool("isRunning", IsMoving());
 
 
-            _yValue -= Gravity * Time.deltaTime;
+            yValue -= Gravity * Time.deltaTime;
             if (!_IsCaught)
             {
-                _characterController.Move(new Vector3(MoveVector.x, _yValue, MoveVector.z) * Time.deltaTime);
+                _characterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
             }
         }
 
@@ -112,14 +115,18 @@ public class MoveRemi : MonoBehaviour
     {
         if (_characterController.isGrounded)
         {
-            _yValue = 0;
+            yValue = 0;
             Debug.Log("Jumped");
-            _yValue += JumpForce;
+            yValue += JumpForce;
         }
     }
     private void FixedUpdate()
     {
-
+        if (Respawning)
+        {
+            Respawn();
+            Respawning = false;
+        }
     }
 
     public void RemiGotCaught()
@@ -127,5 +134,16 @@ public class MoveRemi : MonoBehaviour
         _IsCaught = true;
 
         Debug.Log("you got caught, Remiiiii");
+    }
+
+    public void Respawn()
+    {
+        GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
+
+        spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
+        SpawnAndAssign spawnScript = GetComponent<SpawnAndAssign>();
+
+        transform.position = spawnPointData.GetSpawnPoints(spawnScript.PlayerID).transform.position;
+        //transform.position = Vector3.MoveTowards(transform.position, spawnPointData.GetSpawnPoints(spawnScript.PlayerID - 1).transform.position, 1);
     }
 }
