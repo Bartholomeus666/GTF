@@ -49,7 +49,7 @@ public class TimerForHuman : MonoBehaviour
 
                 timerID = (int)timerTime;
 
-                TimerText.text = $"HIDE!\n{5 - timerID}";  
+                TimerText.text = $"HIDE BEHIND THE FOOD!\n{5 - timerID}";  
             }
         }
         else { timerTime = 0; } 
