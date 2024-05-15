@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class SpawnAndAssign : MonoBehaviour
 {
-    public Camera PlayerCam;
+    //    public Camera PlayerCam;
 
-    public int PlayerID;
+    //    public int PlayerID;
 
-    private SpawnPointData spawnPointData;
+    //    private SpawnPointData spawnPointData;
 
-    private bool AlreadySpawned = false;
+    //    private bool AlreadySpawned = false;
 
-    private void Awake()
-    {
-        if(AlreadySpawned)
-            return;
-
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
-
-        spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
-
-        PlayerID = players.Length;
-
-        AlreadySpawned = true;
-    }
+    //    private void Awake()
+    //    {
+    //        if(AlreadySpawned)
+    //            return;
 
 
-    public void SpawnCamera()
-    {
-        Instantiate(PlayerCam);
-    }
+    //        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+    //        GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
+
+    //        spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
+
+    //        PlayerID = players.Length;
+
+    //        AlreadySpawned = true;
+    //    }
+
+
+    //    public void SpawnCamera()
+    //    {
+    //        Instantiate(PlayerCam);
+    //    }
 
     //public void Respawn()
     //{
