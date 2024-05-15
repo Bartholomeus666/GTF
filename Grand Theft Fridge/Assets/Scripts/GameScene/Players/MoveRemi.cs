@@ -8,142 +8,142 @@ using UnityEngine.InputSystem;
 public class MoveRemi : MonoBehaviour
 {
 
-    //public Vector3 MoveVector;
-    //[SerializeField]
-    //private float Speed;
+    public Vector3 MoveVector;
+    [SerializeField]
+    private float Speed;
 
-    //private CharacterController _characterController;
+    private CharacterController _characterController;
 
-    //public float yValue;
+    public float yValue;
 
-    //public float JumpForce;
-    //[SerializeField] private float Gravity;
+    public float JumpForce;
+    [SerializeField] private float Gravity;
 
-    //[SerializeField] private float Rotation;
-    
-
-    //public Animator Animator;
-
-    //public bool KnockedOut;
-    //private float _knockedOuttimer;
-    //[SerializeField] private float knockedOutCooldown;
-
-    //private bool _IsCaught = false;
-
-    //private SpawnPointData spawnPointData;
-
-    //public bool Respawning;
-
-    //private void Awake()
-    //{
-    //    _characterController = GetComponent<CharacterController>();
-    //    KnockedOut = false;
-    //    _IsCaught = false;
-    //}
-
-    //public void MovePlayer(InputAction.CallbackContext context)
-    //{
-    //    if (!KnockedOut)
-    //    {
-    //        MoveVector.x = context.ReadValue<Vector2>().x * Speed;
-    //        MoveVector.z = context.ReadValue<Vector2>().y * Speed;
-    //    }
-
-    //}
+    [SerializeField] private float Rotation;
 
 
-    //private void Update()
-    //{
-    //    if (!_IsCaught)
-    //    {
-    //        if (_characterController.isGrounded && yValue < 0)
-    //        {
-    //            yValue = 0;
-    //        }
+    public Animator Animator;
 
-    //        if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
-    //        {
-    //            _knockedOuttimer += Time.deltaTime;
-    //        }
-    //        else if(KnockedOut && _knockedOuttimer > knockedOutCooldown)
-    //        {
-    //            _knockedOuttimer = 0;
-    //            KnockedOut = false;
+    public bool KnockedOut;
+    private float _knockedOuttimer;
+    [SerializeField] private float knockedOutCooldown;
 
-    //            MoveVector = Vector3.zero;
-    //        }
+    private bool _IsCaught = false;
 
-    //        if(GettingInput())
-    //        {
-    //            Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
-    //            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
-    //        }
+    private SpawnPointData spawnPointData;
 
-    //        Animator.SetBool("isRunning", IsMoving());
+    public bool Respawning;
+
+    private void Awake()
+    {
+        _characterController = GetComponent<CharacterController>();
+        KnockedOut = false;
+        _IsCaught = false;
+    }
+
+    public void MovePlayer(InputAction.CallbackContext context)
+    {
+        if (!KnockedOut)
+        {
+            MoveVector.x = context.ReadValue<Vector2>().x * Speed;
+            MoveVector.z = context.ReadValue<Vector2>().y * Speed;
+        }
+
+    }
 
 
-    //        yValue -= Gravity * Time.deltaTime;
-    //        if (!_IsCaught)
-    //        {
-    //            _characterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
-    //        }
-    //    }
+    private void Update()
+    {
+        if (!_IsCaught)
+        {
+            if (_characterController.isGrounded && yValue < 0)
+            {
+                yValue = 0;
+            }
 
-    //}
+            if (KnockedOut && _knockedOuttimer < knockedOutCooldown)
+            {
+                _knockedOuttimer += Time.deltaTime;
+            }
+            else if (KnockedOut && _knockedOuttimer > knockedOutCooldown)
+            {
+                _knockedOuttimer = 0;
+                KnockedOut = false;
 
-    //private bool IsMoving()
-    //{
-    //    if(MoveVector.x > 0.05f || MoveVector.z > 0.05f)
-    //    {
-    //        return true;
-    //    }
-    //    else { return false; }
-    //}
+                MoveVector = Vector3.zero;
+            }
 
-    //private bool GettingInput()
-    //{
-    //    Gamepad gamepad = Gamepad.current;
+            if (GettingInput() && IsMoving())
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
+            }
 
-    //    if (gamepad != null && gamepad.leftStick.ReadValue().magnitude < 0.1f)
-    //    {
-    //        return false;
-    //    }
-    //    else { return true; }
-    //}
+            Animator.SetBool("isRunning", IsMoving());
 
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if (_characterController.isGrounded)
-    //    {
-    //        yValue = 0;
-    //        Debug.Log("Jumped");
-    //        yValue += JumpForce;
-    //    }
-    //}
-    //private void FixedUpdate()
-    //{
-    //    if (Respawning)
-    //    {
-    //        Respawn();
-    //        Respawning = false;
-    //    }
-    //}
 
-    //public void RemiGotCaught()
-    //{
-    //    _IsCaught = true;
+            yValue -= Gravity * Time.deltaTime;
+            if (!_IsCaught)
+            {
+                _characterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
+            }
+        }
 
-    //    Debug.Log("you got caught, Remiiiii");
-    //}
+    }
 
-    //public void Respawn()
-    //{
-    //    GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
+    private bool IsMoving()
+    {
+        if (MoveVector.x != 0 || MoveVector.z != 0)
+        {
+            return true;
+        }
+        else { return false; }
+    }
 
-    //    spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
-    //    SpawnAndAssign spawnScript = GetComponent<SpawnAndAssign>();
+    private bool GettingInput()
+    {
+        Gamepad gamepad = Gamepad.current;
 
-    //    transform.position = spawnPointData.GetSpawnPoints(spawnScript.PlayerID).transform.position;
-    //    //transform.position = Vector3.MoveTowards(transform.position, spawnPointData.GetSpawnPoints(spawnScript.PlayerID - 1).transform.position, 1);
-    //}
+        if (gamepad != null && gamepad.leftStick.ReadValue().magnitude < 0.1f)
+        {
+            return false;
+        }
+        else { return true; }
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (_characterController.isGrounded)
+        {
+            yValue = 0;
+            Debug.Log("Jumped");
+            yValue += JumpForce;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (Respawning)
+        {
+            Respawn();
+            Respawning = false;
+        }
+    }
+
+    public void RemiGotCaught()
+    {
+        _IsCaught = true;
+
+        Debug.Log("you got caught, Remiiiii");
+    }
+
+    public void Respawn()
+    {
+        GameObject respawnCollection = GameObject.FindGameObjectWithTag("Respawn");
+
+        spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
+        SpawnAndAssign spawnScript = GetComponent<SpawnAndAssign>();
+
+        transform.position = spawnPointData.GetSpawnPoints(spawnScript.PlayerID).transform.position;
+        //transform.position = Vector3.MoveTowards(transform.position, spawnPointData.GetSpawnPoints(spawnScript.PlayerID - 1).transform.position, 1);
+    }
 }
