@@ -20,7 +20,7 @@ public class MoveRemi : MonoBehaviour
     [SerializeField] private float Gravity;
 
     [SerializeField] private float Rotation;
-    
+
 
     public Animator Animator;
 
@@ -61,11 +61,11 @@ public class MoveRemi : MonoBehaviour
                 yValue = 0;
             }
 
-            if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
+            if (KnockedOut && _knockedOuttimer < knockedOutCooldown)
             {
                 _knockedOuttimer += Time.deltaTime;
             }
-            else if(KnockedOut && _knockedOuttimer > knockedOutCooldown)
+            else if (KnockedOut && _knockedOuttimer > knockedOutCooldown)
             {
                 _knockedOuttimer = 0;
                 KnockedOut = false;
@@ -73,7 +73,7 @@ public class MoveRemi : MonoBehaviour
                 MoveVector = Vector3.zero;
             }
 
-            if(GettingInput())
+            if (GettingInput() && IsMoving())
             {
                 Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
@@ -93,7 +93,7 @@ public class MoveRemi : MonoBehaviour
 
     private bool IsMoving()
     {
-        if(MoveVector.x > 0.05f || MoveVector.z > 0.05f)
+        if (MoveVector.x != 0 || MoveVector.z != 0)
         {
             return true;
         }
