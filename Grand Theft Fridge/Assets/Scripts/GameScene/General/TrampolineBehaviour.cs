@@ -13,7 +13,7 @@ public class TrampolineBehaviour : MonoBehaviour
         {
             Debug.Log("TRIGGGEEEEER");
             MoveRemi moveScrpt = other.gameObject.GetComponent<MoveRemi>();
-            float jumpForce = moveScrpt.JumpForce * 1.4f;
+            float jumpForce = moveScrpt.JumpForce * 2f;
 
             moveScrpt.yValue = 0;
             Debug.Log("Jumped");
