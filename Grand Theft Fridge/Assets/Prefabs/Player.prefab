@@ -79,12 +79,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveVector: {x: 0, y: 0, z: 0}
   Speed: 8
+  yValue: 0
   JumpForce: 15
   Gravity: 40
   Rotation: 2
   Animator: {fileID: 2729275341042433630}
   KnockedOut: 0
   knockedOutCooldown: 0.5
+  Respawning: 0
 --- !u!114 &7102607714715442911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7838cfe109589414b9f90947e19a7bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AssignColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1592309738245997553, guid: 27b3621657b2b9043904f283bc53ef02, type: 3}
+        m_TargetAssemblyTypeName: AssignColors, Assembly-CSharp
+        m_MethodName: AssignMaterials
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   PlayerCam: {fileID: 6726998830402621604, guid: f3b55547a061c034f91261a2f80800cc, type: 3}
   PlayerID: 0
 --- !u!114 &2056190050520420829

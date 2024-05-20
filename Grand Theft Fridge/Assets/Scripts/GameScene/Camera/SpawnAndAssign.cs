@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnAndAssign : MonoBehaviour
 {
+    [SerializeField] private UnityEvent AssignColor;
+
     public Camera PlayerCam;
 
     public int PlayerID;
@@ -24,6 +27,8 @@ public class SpawnAndAssign : MonoBehaviour
         spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
 
         PlayerID = players.Length;
+
+        AssignColor.Invoke();
 
         AlreadySpawned = true;
     }

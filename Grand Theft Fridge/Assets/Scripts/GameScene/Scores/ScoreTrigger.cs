@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ScoreTrigger : MonoBehaviour
 {
-    public UnityEvent AssignPoint;
-
-    [SerializeField] private int PlayerNr;
-
     public int Score;
 
     private BasicAttack _grabScript;
@@ -26,31 +22,36 @@ public class ScoreTrigger : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Interactable"))
         {
-            Debug.Log("Point!");
-
-            AssignPoint.Invoke();
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag.Equals("Player"))
         {
             _grabScript = other.GetComponent<BasicAttack>();
 
+            SpawnAndAssign idScript = other.GetComponent<SpawnAndAssign>();
             MoveRemi moveScript = other.GetComponent<MoveRemi>();
 
-            _grabScript.IsHoldingFood = false;
+            if (_grabScript.IsHoldingFood)
+            {
+                AssignPointEvent(idScript.PlayerID);
+
+
+                _grabScript.IsHoldingFood = false;
+            }
+
 
             moveScript.Respawning = true;
 
         }
     }
 
-    public void AssignPointEvent()
+    private void AssignPointEvent(int playerNr)
     {
-        _scoreManager.Points[PlayerNr - 1]++;
+        _scoreManager.Points[playerNr - 1]++;
 
-        if(_scoreManager.Points[PlayerNr - 1] == 10)
+        if(_scoreManager.Points[playerNr - 1] == 10)
         {
-            PlayerPrefs.SetInt("Winner", PlayerNr);
+            PlayerPrefs.SetInt("Winner", playerNr);
             SceneManager.LoadScene("StatsScene");
         }
     }
