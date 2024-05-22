@@ -12,6 +12,8 @@ public class ScoreTrigger : MonoBehaviour
 
     private ScoreManager _scoreManager;
 
+    [SerializeField] private GameObject _scoreBomb;
+
 
     private void Start()
     {
@@ -33,6 +35,8 @@ public class ScoreTrigger : MonoBehaviour
 
             if (_grabScript.IsHoldingFood)
             {
+                Instantiate(_scoreBomb, transform.position, Quaternion.identity);
+
                 AssignPointEvent(idScript.PlayerID);
 
 
