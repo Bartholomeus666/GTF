@@ -10,10 +10,14 @@ public class ConnectCameraToPlayer : MonoBehaviour
     [SerializeField] private float zValue;
     [SerializeField] private float extraYValue;
 
+    public int CamerId = 0;
+
 
     private void Start()
     {
         Player.SetActive(true);
+
+        CamerId = Player.GetComponent<SpawnAndAssign>().PlayerID;
     }
 
     private void Update()
