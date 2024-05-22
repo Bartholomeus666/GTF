@@ -48,7 +48,6 @@ public class MoveRemi : MonoBehaviour
             MoveVector.x = context.ReadValue<Vector2>().x * Speed;
             MoveVector.z = context.ReadValue<Vector2>().y * Speed;
         }
-
     }
 
 

@@ -6422,7 +6422,7 @@ Transform:
   m_GameObject: {fileID: 1784445308}
   serializedVersion: 2
   m_LocalRotation: {x: 0.06780565, y: -0.65725183, z: 0.18468748, w: 0.727539}
-  m_LocalPosition: {x: 3.73, y: -17.77, z: 1.005}
+  m_LocalPosition: {x: 3.73, y: -17.77, z: 3.13}
   m_LocalScale: {x: 0.69570065, y: 0.6957, z: 0.69569993}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7330,6 +7330,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2121181739}
         m_TargetAssemblyTypeName: SplitscreenUIManager, Assembly-CSharp
         m_MethodName: DrawingCross
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpawnFoodPointers, Assembly-CSharp
+        m_MethodName: SpawnFoodPointer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
