@@ -8,6 +8,8 @@ TagManager:
   - SoundMeter
   - Invisible
   - Hand
+  - Pointer
+  - PlayerCam
   layers:
   - Default
   - TransparentFX

@@ -75,6 +75,7 @@ public class BasicAttack : MonoBehaviour
                         //foodScript.Player = Hand;
                         foodScript.Player = this.gameObject;
                         _fillUpMeterScript.AddSound(5);
+                        break;
                     }
 
                 }

@@ -14,9 +14,9 @@ public class MoveRemi : MonoBehaviour
 
     private CharacterController _characterController;
 
-    private float _yValue;
+    public float yValue { get; set; }
 
-    [SerializeField] private float JumpForce;
+    [SerializeField] public float JumpForce;
     [SerializeField] private float Gravity;
 
     [SerializeField] private float Rotation;
@@ -53,9 +53,9 @@ public class MoveRemi : MonoBehaviour
     {
         if (!_IsCaught)
         {
-            if (_characterController.isGrounded && _yValue < 0)
+            if (_characterController.isGrounded && yValue < 0)
             {
-                _yValue = 0;
+                yValue = 0;
             }
 
             if(KnockedOut && _knockedOuttimer < knockedOutCooldown)
@@ -70,7 +70,7 @@ public class MoveRemi : MonoBehaviour
                 MoveVector = Vector3.zero;
             }
 
-            if(GettingInput())
+            if(GettingInput() && IsMoving())
             {
                 Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
@@ -83,7 +83,7 @@ public class MoveRemi : MonoBehaviour
 
     private bool IsMoving()
     {
-        if(MoveVector.x > 0.05f || MoveVector.z > 0.05f)
+        if(MoveVector.x != 0 || MoveVector.z != 0)
         {
             return true;
         }
@@ -105,17 +105,17 @@ public class MoveRemi : MonoBehaviour
     {
         if (_characterController.isGrounded)
         {
-            _yValue = 0;
+            yValue = 0;
             Debug.Log("Jumped");
-            _yValue += JumpForce;
+            yValue += JumpForce;
         }
     }
     private void FixedUpdate()
     {
-        _yValue -= Gravity * Time.deltaTime;
+        yValue -= Gravity * Time.deltaTime;
         if (!_IsCaught)
         {
-            _characterController.Move(new Vector3(MoveVector.x, _yValue, MoveVector.z) * Time.deltaTime);
+            _characterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
         }
     }
 
