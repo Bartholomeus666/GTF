@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -39,7 +40,7 @@ public class BasicAttack : MonoBehaviour
             {
                 Debug.Log("Opponent attacked");
 
-                MoveRemi moveScript=  c.gameObject.GetComponent<MoveRemi>();
+                MoveRemi moveScript = c.gameObject.GetComponent<MoveRemi>();
                 BasicAttack grabbedScript= c.gameObject.GetComponent<BasicAttack>();
 
                 grabbedScript.IsHoldingFood = false;
@@ -47,8 +48,17 @@ public class BasicAttack : MonoBehaviour
                 moveScript.KnockedOut = true;
                 moveScript.MoveVector = transform.forward * PushForce;
                 _fillUpMeterScript.AddSound(5);
+
+                ReturBoolForAttack();
             }
         }
+    }
+
+    public bool ReturBoolForAttack()
+    {
+        bool attacked = true;
+
+        return attacked;
     }
 
     public void GrabPerformed()

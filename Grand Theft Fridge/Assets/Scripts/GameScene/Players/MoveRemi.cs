@@ -12,7 +12,7 @@ public class MoveRemi : MonoBehaviour
     [SerializeField]
     private float Speed;
 
-    private CharacterController _characterController;
+    public CharacterController CharacterController;
 
     public float yValue;
 
@@ -21,8 +21,6 @@ public class MoveRemi : MonoBehaviour
 
     [SerializeField] private float Rotation;
 
-
-    public Animator Animator;
 
     public bool KnockedOut;
     private float _knockedOuttimer;
@@ -36,7 +34,7 @@ public class MoveRemi : MonoBehaviour
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        CharacterController = GetComponent<CharacterController>();
         KnockedOut = false;
         _IsCaught = false;
     }
@@ -55,7 +53,7 @@ public class MoveRemi : MonoBehaviour
     {
         if (!_IsCaught)
         {
-            if (_characterController.isGrounded && yValue < 0)
+            if (CharacterController.isGrounded && yValue < 0)
             {
                 yValue = 0;
             }
@@ -78,19 +76,16 @@ public class MoveRemi : MonoBehaviour
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
             }
 
-            Animator.SetBool("isRunning", IsMoving());
-
-
             yValue -= Gravity * Time.deltaTime;
             if (!_IsCaught)
             {
-                _characterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
+                CharacterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
             }
         }
 
     }
 
-    private bool IsMoving()
+    public bool IsMoving()
     {
         if (MoveVector.x != 0 || MoveVector.z != 0)
         {
@@ -110,9 +105,9 @@ public class MoveRemi : MonoBehaviour
         else { return true; }
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    private void Jump(InputAction.CallbackContext context)
     {
-        if (_characterController.isGrounded)
+        if (CharacterController.isGrounded)
         {
             yValue = 0;
             Debug.Log("Jumped");
