@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TrampolineBehaviour : MonoBehaviour
 {
+    public AudioSource src;
+    public AudioClip boing;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +16,9 @@ public class TrampolineBehaviour : MonoBehaviour
             Debug.Log("TRIGGGEEEEER");
             MoveRemi moveScrpt = other.gameObject.GetComponent<MoveRemi>();
             float jumpForce = moveScrpt.JumpForce * 1.4f;
+
+            src.clip = boing;
+            src.Play();
 
             moveScrpt.yValue = 0;
             Debug.Log("Jumped");

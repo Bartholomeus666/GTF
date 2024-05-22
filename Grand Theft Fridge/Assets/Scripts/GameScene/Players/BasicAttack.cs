@@ -6,6 +6,15 @@ using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
 {
+    public AudioSource src1;
+    public AudioSource src2;
+    public AudioSource src3;
+
+    public AudioClip HitSound;
+    public AudioClip Squeak;
+    public AudioClip Pickup;
+
+
     private Food _foodScript;
     [SerializeField] private float PickUpRadius = 2;
     [SerializeField] private float ForwardOffset = 2;
@@ -39,6 +48,10 @@ public class BasicAttack : MonoBehaviour
             {
                 Debug.Log("Opponent attacked");
 
+                src1.clip = HitSound;
+                src1.Play();
+                
+
                 MoveRemi moveScript=  c.gameObject.GetComponent<MoveRemi>();
                 BasicAttack grabbedScript= c.gameObject.GetComponent<BasicAttack>();
 
@@ -46,6 +59,10 @@ public class BasicAttack : MonoBehaviour
 
                 moveScript.KnockedOut = true;
                 moveScript.MoveVector = transform.forward * PushForce;
+
+                src2.clip = Squeak;
+                src2.Play();
+
                 _fillUpMeterScript.AddSound(5);
             }
         }
@@ -75,6 +92,10 @@ public class BasicAttack : MonoBehaviour
                         //foodScript.Player = Hand;
                         foodScript.Player = this.gameObject;
                         _fillUpMeterScript.AddSound(5);
+
+                        src3.clip = Pickup;
+                        src3.Play();
+
                     }
 
                 }

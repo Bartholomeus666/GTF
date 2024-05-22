@@ -8,7 +8,12 @@ public class TimerForHuman : MonoBehaviour
 {
     [SerializeField] private TMP_Text TimerText;
 
+    [SerializeField] private AudioSource audioSource;
+
     public UnityEvent LookingForRats;
+
+    
+
 
     private int timerID = 0;
     private float timerTime = 0;
@@ -22,6 +27,7 @@ public class TimerForHuman : MonoBehaviour
     {
         TimerText.text = string.Empty;
         timerRunning = false;
+        audioSource = GetComponent<AudioSource>();
 
         Debug.Log("Timer is 0");
     }

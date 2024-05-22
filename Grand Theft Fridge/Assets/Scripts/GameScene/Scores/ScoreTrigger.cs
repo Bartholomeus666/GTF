@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ScoreTrigger : MonoBehaviour
 {
+    public AudioSource src;
+    public AudioClip Point;
+
     public UnityEvent AssignPoint;
 
     [SerializeField] private int PlayerNr;
@@ -48,7 +51,10 @@ public class ScoreTrigger : MonoBehaviour
     {
         _scoreManager.Points[PlayerNr - 1]++;
 
-        if(_scoreManager.Points[PlayerNr - 1] == 3)
+        src.clip = Point;
+        src.Play();
+
+        if (_scoreManager.Points[PlayerNr - 1] == 3)
         {
             PlayerPrefs.SetInt("Winner", PlayerNr);
             SceneManager.LoadScene("StatsScene");

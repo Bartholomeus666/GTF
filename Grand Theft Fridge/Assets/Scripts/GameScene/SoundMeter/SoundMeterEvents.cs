@@ -11,9 +11,16 @@ public class SoundMeterEvents : MonoBehaviour
     [SerializeField] private FillUpMeter MeterBoolScript;
     private bool _eventsInvoked = false;
 
+    public AudioSource src;
+    public AudioClip Buzzer;
+
+
 
     public void MeterFilled()
     {
+        src.clip = Buzzer;
+        src.Play();
+
         MoveCamera.Invoke();
         StartTimer.Invoke();
 
