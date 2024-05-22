@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class LookingForRats : MonoBehaviour
 {
+
     private GameObject[] _players;
 
     [SerializeField] private UnityEvent RaycastEvent;
@@ -21,6 +22,7 @@ public class LookingForRats : MonoBehaviour
     [SerializeField] private GameObject[] LifeUI = new GameObject[4];   
     public void BlockMovement()
     {
+
         Debug.Log("Players getting assigned");
 
         _players = GameObject.FindGameObjectsWithTag("Player");
@@ -75,8 +77,9 @@ public class LookingForRats : MonoBehaviour
                 }
             }
         }
-        BackToSplitscreen.Invoke();
+        BackToSplitscreen.Invoke();       
     }
+
     private void OnDrawGizmos()
     {
         _players = GameObject.FindGameObjectsWithTag("Player");
