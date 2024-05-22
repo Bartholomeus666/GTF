@@ -10,6 +10,10 @@ public class TimerForHuman : MonoBehaviour
 
     public UnityEvent LookingForRats;
 
+    public AudioSource src;
+    public AudioClip Alarm;
+    public AudioSource bgm;
+
     private int timerID = 0;
     private float timerTime = 0;
     private float timerMax = 5;
@@ -41,6 +45,9 @@ public class TimerForHuman : MonoBehaviour
 
                 UIScoreAndMeter.SetActive(true);
 
+                // Unmute bgm
+                EnableAudioSource();
+
                 LookingForRats.Invoke();
             }
             else
@@ -64,6 +71,12 @@ public class TimerForHuman : MonoBehaviour
             timerMaxedOut = false;
             timerRunning = true;
             timerTime = 0;
+
+            //Play Alarm and mute bgm
+            src.clip = Alarm;
+            src.Play();
+            DisableAudioSource();
+
             Debug.Log("Timer started");
         }
         if(timerRunning && !timerMaxedOut)
@@ -72,4 +85,34 @@ public class TimerForHuman : MonoBehaviour
         }
 
     }
+
+    public void EnableAudioSource()
+    {
+        AudioSource audioSource = bgm.GetComponent<AudioSource>();
+
+        if (bgm != null)
+        {
+            bgm.mute = false;
+
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void DisableAudioSource()
+    {
+        AudioSource audioSource = bgm.GetComponent<AudioSource>();
+
+        if (bgm != null)
+        {
+            bgm.mute = true;
+
+        }
+        else
+        {
+            return;
+        }
+    }
+
 }

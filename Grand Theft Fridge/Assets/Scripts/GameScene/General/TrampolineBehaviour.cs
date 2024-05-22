@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class TrampolineBehaviour : MonoBehaviour
 {
+    public AudioSource src;
+    public AudioClip trampoline;
+
     Animator jelloAnimator;
 
     private void Start()
@@ -23,6 +26,10 @@ public class TrampolineBehaviour : MonoBehaviour
             Debug.Log("TRIGGGEEEEER");
             MoveRemi moveScrpt = other.gameObject.GetComponent<MoveRemi>();
             float jumpForce = moveScrpt.JumpForce * 2f;
+
+            //Play trampoline sound
+            src.clip = trampoline;
+            src.Play();
 
             moveScrpt.yValue = 0;
             Debug.Log("Jumped");

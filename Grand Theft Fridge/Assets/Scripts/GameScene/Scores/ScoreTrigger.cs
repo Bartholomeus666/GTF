@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ScoreTrigger : MonoBehaviour
 {
+
+    public AudioSource src;
+    public AudioClip ScorePoint;
+
     public int Score;
 
     private BasicAttack _grabScript;
@@ -25,6 +29,11 @@ public class ScoreTrigger : MonoBehaviour
         if (other.gameObject.tag.Equals("Interactable"))
         {
             Destroy(other.gameObject);
+
+            //Play score sound
+            src.clip = ScorePoint;
+            src.Play();
+
         }
         else if (other.gameObject.tag.Equals("Player"))
         {
