@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
 {
+
+    public AudioSource src1, src2, src3;
+    public AudioClip Punch, Squeak, PickUp;
+
     private Food _foodScript;
     [SerializeField] private float PickUpRadius = 2;
     [SerializeField] private float ForwardOffset = 2;
@@ -40,6 +44,10 @@ public class BasicAttack : MonoBehaviour
             {
                 Debug.Log("Opponent attacked");
 
+                //Play punch sound
+                src1.clip = Punch;
+                src1.Play();
+
                 MoveRemi moveScript = c.gameObject.GetComponent<MoveRemi>();
                 BasicAttack grabbedScript= c.gameObject.GetComponent<BasicAttack>();
 
@@ -47,6 +55,11 @@ public class BasicAttack : MonoBehaviour
 
                 moveScript.KnockedOut = true;
                 moveScript.MoveVector = transform.forward * PushForce;
+
+                //Play Squeak sound
+                src2.clip = Squeak;
+                src2.Play();
+
                 _fillUpMeterScript.AddSound(5);
 
                 ReturBoolForAttack();
@@ -75,6 +88,10 @@ public class BasicAttack : MonoBehaviour
                 if (c.tag == "Interactable")
                 {
                     Debug.Log("Food found!");
+
+                    //Play pickup sound
+                    src3.clip = PickUp;
+                    src3.Play();
 
                     IsHoldingFood = true;
                     Food foodScript = c.gameObject.GetComponent<Food>();
