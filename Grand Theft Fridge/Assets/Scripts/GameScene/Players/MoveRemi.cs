@@ -10,7 +10,7 @@ public class MoveRemi : MonoBehaviour
 
     public Vector3 MoveVector;
     [SerializeField]
-    private float Speed;
+    public float Speed;
 
     public CharacterController CharacterController;
 
@@ -32,9 +32,12 @@ public class MoveRemi : MonoBehaviour
 
     public bool Respawning;
 
+    private AnimationController _animationController;
     private void Awake()
     {
         CharacterController = GetComponent<CharacterController>();
+        _animationController = GetComponentInChildren<AnimationController>();
+        
         KnockedOut = false;
         _IsCaught = false;
     }
@@ -74,6 +77,11 @@ public class MoveRemi : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
+                _animationController.ChangeAnimation("Running");
+            }
+            else
+            {
+                _animationController.BackToIdle();
             }
 
             yValue -= Gravity * Time.deltaTime;

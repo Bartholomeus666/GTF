@@ -11,6 +11,9 @@ TagManager:
   - Pointer
   - ScoreManager
   - PlayerCamera
+  - BlockingFood
+  - Fridge
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

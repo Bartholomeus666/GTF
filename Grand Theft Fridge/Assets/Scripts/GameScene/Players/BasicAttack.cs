@@ -34,6 +34,9 @@ public class BasicAttack : MonoBehaviour
     {
         Debug.Log("Attacking");
 
+        AnimationController animationController = GetComponentInChildren<AnimationController>();
+        animationController.ChangeAnimation("Attack");
+
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
 
         for (int i = 0; i < colliders.Length; i++)
@@ -62,16 +65,11 @@ public class BasicAttack : MonoBehaviour
 
                 _fillUpMeterScript.AddSound(5);
 
-                ReturBoolForAttack();
+
+
+                
             }
         }
-    }
-
-    public bool ReturBoolForAttack()
-    {
-        bool attacked = true;
-
-        return attacked;
     }
 
     public void GrabPerformed()

@@ -24,6 +24,6 @@ public class ConnectCameraToPlayer : MonoBehaviour
     {
         _playerPostition = Player.transform.position;
 
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(_playerPostition.x, _playerPostition.y + extraYValue, zValue), 0.3f);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(_playerPostition.x, _playerPostition.y + extraYValue, zValue), 0.2f);
     }
 }

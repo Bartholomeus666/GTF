@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,23 +6,23 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     private Animator _animator;
-    private string _currentAnimation = string.Empty;
+    private string _currentAnimation = "Idle";
 
     private MoveRemi _moveScript;
     private BasicAttack _basicAttackScript;
 
-    public enum RatState
-    {
-        Idle,
-        Running,
-        Attack,
-        Dead,
-        Jump,
-        GettingAttacked,
-        Falling
-    }
+    //public enum RatState
+    //{
+    //    Idle,
+    //    Running,
+    //    Attack,
+    //    Dead,
+    //    Jump,
+    //    GettingAttacked,
+    //    Falling
+    //}
 
-    private RatState _state;
+    //public RatState State;
 
     private void Start()
     {
@@ -33,34 +34,41 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        CheckBasicAnimation();
+        //BackToIdle();
+        //ChangeAnimation();
     }
 
-    private void ChangeAnimation(string animationName, float crossfade = 0.5f)
+    public void ChangeAnimation(string animationName, float crossfade = 0.5f, float time = 0)
     {
-        if(_currentAnimation != animationName)
+        if (time > 0) StartCoroutine(Wait());
+        else Validate();
+
+        IEnumerator Wait()
         {
-            _currentAnimation = animationName;
-            _animator.CrossFade(animationName, crossfade);
+            yield return new WaitForSeconds(time /*- crossfade*/);
+            Validate();
+        }
+
+        void Validate()
+        {
+            if (_currentAnimation != animationName)
+            {
+                _currentAnimation = animationName;
+                if (_currentAnimation == "")
+                    _currentAnimation = "Idle";
+                else
+                    _animator.CrossFade(animationName, crossfade);
+            }
         }
     }
 
-    private void CheckBasicAnimation()
+    public void BackToIdle()
     {
-        if (_moveScript.CharacterController.isGrounded && _basicAttackScript.ReturBoolForAttack())
+        if(_currentAnimation == "Attack")
         {
-            _state = RatState.Attack;
+            return;
         }
-        else if (_moveScript.IsMoving())
-        {
-            _state = RatState.Running;
-        }
-        else if (!_moveScript.IsMoving())
-        {
-            _state= RatState.Idle;
-        }
-        
 
-        ChangeAnimation($"{_state}");
+        ChangeAnimation("Idle");
     }
 }

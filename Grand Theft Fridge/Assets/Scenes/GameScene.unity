@@ -959,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Cherries (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     - target: {fileID: 8972536031395690948, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.304376
@@ -1592,6 +1596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Watermelon
       objectReference: {fileID: 0}
+    - target: {fileID: 7387368059845253752, guid: 45b14d93034daf34d918b768c368a307, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1648,6 +1656,10 @@ PrefabInstance:
     - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
       propertyPath: m_Name
       value: Plane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1771,6 +1783,10 @@ PrefabInstance:
     - target: {fileID: 7650440517676162073, guid: c0cc34df7f6f423489b238c149c994e3, type: 3}
       propertyPath: m_Name
       value: SM_PackL
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650440517676162073, guid: c0cc34df7f6f423489b238c149c994e3, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 9046159008680322952, guid: c0cc34df7f6f423489b238c149c994e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2081,6 +2097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Cola
       objectReference: {fileID: 0}
+    - target: {fileID: 5531374804196774269, guid: 3c5ba9fc8e3fb134d8a91dbf7aa69927, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2137,6 +2157,10 @@ PrefabInstance:
     - target: {fileID: 7711907109628355760, guid: e9a2691cfaf9746498a858f992854679, type: 3}
       propertyPath: m_Name
       value: SM_Pickles
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711907109628355760, guid: e9a2691cfaf9746498a858f992854679, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2269,6 +2293,10 @@ PrefabInstance:
     - target: {fileID: 6190982028668636863, guid: a45d21f4393754f40abbd4f4eb2928e1, type: 3}
       propertyPath: m_Name
       value: SM_Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190982028668636863, guid: a45d21f4393754f40abbd4f4eb2928e1, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2455,6 +2483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2557,37 +2589,6 @@ MonoBehaviour:
   - {fileID: 657103841}
   - {fileID: 1106898964}
   YouDiedPanel: {fileID: 115448707}
---- !u!1 &582253764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 582253765}
-  m_Layer: 6
-  m_Name: FoodToHiddde
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &582253765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582253764}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.85, y: 5.62, z: -2.65}
-  m_LocalScale: {x: 2.1229, y: 2.1976, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &599368299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2866,10 @@ PrefabInstance:
     - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
       propertyPath: m_Name
       value: Plane (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3216,6 +3221,10 @@ PrefabInstance:
     - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_Name
       value: SM_Water (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 6118103023315696435, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3637,6 +3646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BowlAppleAndCherries
       objectReference: {fileID: 0}
+    - target: {fileID: 7551539531049517399, guid: aa19b9cb914735e4e90a8a9374180e8d, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3937,9 +3950,9 @@ GameObject:
   m_Component:
   - component: {fileID: 894747637}
   - component: {fileID: 894747636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InvisibleWalls
-  m_TagString: Untagged
+  m_TagString: Invisible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4656,6 +4669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_CheeseBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 4418194731468969771, guid: 9fe93497bb494c646a1169bae6cbba66, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4806,6 +4823,10 @@ PrefabInstance:
     - target: {fileID: 2779173837907470430, guid: acee62cd21bfe804484de61def453264, type: 3}
       propertyPath: m_Name
       value: SM_Eggbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779173837907470430, guid: acee62cd21bfe804484de61def453264, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 7236849579374301359, guid: acee62cd21bfe804484de61def453264, type: 3}
       propertyPath: m_LocalScale.x
@@ -5259,6 +5280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5275,6 +5300,10 @@ PrefabInstance:
     - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_Name
       value: SM_Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 6118103023315696435, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5810,6 +5839,10 @@ PrefabInstance:
     - target: {fileID: 5149275797822659966, guid: 456252c7ba75a00488d627c1079223d9, type: 3}
       propertyPath: m_Name
       value: SM_Juice (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149275797822659966, guid: 456252c7ba75a00488d627c1079223d9, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6391,6 +6424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Juice
       objectReference: {fileID: 0}
+    - target: {fileID: 5149275797822659966, guid: 456252c7ba75a00488d627c1079223d9, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6407,6 +6444,10 @@ PrefabInstance:
     - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_Name
       value: SM_Cherries (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 8972536031395690948, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_LocalScale.x
@@ -6828,6 +6869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Cherry.001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3082897541286619094, guid: ed4b79dcbe71763489231b419bdc10f7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     - target: {fileID: 7821917593407198675, guid: ed4b79dcbe71763489231b419bdc10f7, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.756343
@@ -6900,7 +6945,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1399717108144788485, guid: e6eee8443854bac40817e39d49156718, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.6968927
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1399717108144788485, guid: e6eee8443854bac40817e39d49156718, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7145,6 +7190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Cherries (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     - target: {fileID: 8972536031395690948, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.304376
@@ -7364,6 +7413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Apple (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7551539531049517399, guid: aa19b9cb914735e4e90a8a9374180e8d, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7482,6 +7535,10 @@ PrefabInstance:
     - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567981887255340274, guid: 540c7af359025cb429fb52f5ea3d41e7, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7618,6 +7675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Cherry (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2801362895184747959, guid: c416c0877ea337247aab03be674bc4d0, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
+      objectReference: {fileID: 0}
     - target: {fileID: 6151789200904245608, guid: c416c0877ea337247aab03be674bc4d0, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3043762
@@ -7743,6 +7804,10 @@ PrefabInstance:
     - target: {fileID: 7088415371344829832, guid: bbcc043a89ba1b240a0c350455037a43, type: 3}
       propertyPath: m_Name
       value: SM_CheeseWedge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088415371344829832, guid: bbcc043a89ba1b240a0c350455037a43, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7884,6 +7949,10 @@ PrefabInstance:
     - target: {fileID: 6190982028668636863, guid: a45d21f4393754f40abbd4f4eb2928e1, type: 3}
       propertyPath: m_Name
       value: SM_Milk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190982028668636863, guid: a45d21f4393754f40abbd4f4eb2928e1, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8134,6 +8203,10 @@ PrefabInstance:
     - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_Name
       value: SM_Water (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558047210188347009, guid: f78ae913d223107488336146c632c6e6, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 6118103023315696435, guid: f78ae913d223107488336146c632c6e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8425,6 +8498,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076374558}
   m_CullTransparentMesh: 1
+--- !u!1001 &2101111677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4223793996046980610, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_Name
+      value: SpeedBoost
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.746874
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.230023
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.067153
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569564051668505292, guid: 650feb3c368741049b579c4321a93669, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 650feb3c368741049b579c4321a93669, type: 3}
 --- !u!1001 &2105633283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8436,6 +8566,10 @@ PrefabInstance:
     - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_Name
       value: SM_Cherries (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 406065473812641132, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     - target: {fileID: 8972536031395690948, guid: 12040c70d4d4b0d4682fd3660b88b9ae, type: 3}
       propertyPath: m_LocalScale.x
@@ -8815,9 +8949,9 @@ GameObject:
   - component: {fileID: 3469287838472201898}
   - component: {fileID: 1711813854677635680}
   - component: {fileID: 3469287838472201899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OneHoleFridge
-  m_TagString: Untagged
+  m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9019,6 +9153,10 @@ PrefabInstance:
     - target: {fileID: 7912899371481959306, guid: 3b8504723e0aeb8488c5a4885b235e5a, type: 3}
       propertyPath: m_Name
       value: SM_Bowl
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912899371481959306, guid: 3b8504723e0aeb8488c5a4885b235e5a, type: 3}
+      propertyPath: m_TagString
+      value: BlockingFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9863,7 +10001,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2832a2884d523594893d647b600dc315, type: 2}
     - target: {fileID: -2739813573931602801, guid: 779b8253ae1a76c4b991f0f0abae7dc0, type: 3}
       propertyPath: LayerMask.m_Bits
-      value: 64
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: -2739813573931602801, guid: 779b8253ae1a76c4b991f0f0abae7dc0, type: 3}
       propertyPath: LifeUI.Array.data[0]
@@ -10200,7 +10338,6 @@ SceneRoots:
   - {fileID: 334539138}
   - {fileID: 1811710263}
   - {fileID: 2041983268}
-  - {fileID: 582253765}
   - {fileID: 894747637}
   - {fileID: 2138389515}
   - {fileID: 7752101485894685529}
@@ -10228,3 +10365,4 @@ SceneRoots:
   - {fileID: 677141307}
   - {fileID: 1656917392}
   - {fileID: 112954675}
+  - {fileID: 2101111677}
