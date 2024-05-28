@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5897675173493790287}
   - component: {fileID: 1086829820181608094}
   - component: {fileID: 318637360291825783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Juice
   m_TagString: Untagged
   m_Icon: {fileID: 0}

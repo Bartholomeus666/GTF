@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6556552804697808921}
   - component: {fileID: 5894476879501270685}
   - component: {fileID: -110203431281534264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_BarbecueSauce
   m_TagString: Untagged
   m_Icon: {fileID: 0}

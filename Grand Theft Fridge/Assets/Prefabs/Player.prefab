@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 2056190050520420829}
   - component: {fileID: -5252596565667519365}
   - component: {fileID: 5371978857962408404}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -474,6 +474,66 @@ MonoBehaviour:
   KnockedOut: 0
   knockedOutCooldown: 0.5
   Respawning: 0
+  AnimateRun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6010050115636454175}
+        m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+        m_MethodName: RunningAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AnimateJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6010050115636454175}
+        m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+        m_MethodName: JumpingAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AnimateFlying:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6010050115636454175}
+        m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+        m_MethodName: FlyingAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AnimateDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6010050115636454175}
+        m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+        m_MethodName: DeathAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7102607714715442911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +692,21 @@ MonoBehaviour:
   PushForce: 10
   IsHoldingFood: 0
   Hand: {fileID: 0}
+  AnimateAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6010050115636454175}
+        m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+        m_MethodName: AttackAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5371978857962408404
 MonoBehaviour:
   m_ObjectHideFlags: 0

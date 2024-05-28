@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_CheeseCube
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ee97477a7e17494aa5f02c7d36b6a20, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2364616026553543599, guid: 2ee97477a7e17494aa5f02c7d36b6a20, type: 3}

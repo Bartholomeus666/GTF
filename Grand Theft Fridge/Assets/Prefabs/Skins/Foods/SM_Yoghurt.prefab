@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2622380447778055920}
   - component: {fileID: 1534987551036103623}
   - component: {fileID: 5089651255642188079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Yoghurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

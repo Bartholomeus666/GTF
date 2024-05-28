@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MoveRemi : MonoBehaviour
@@ -33,6 +34,16 @@ public class MoveRemi : MonoBehaviour
     public bool Respawning;
 
     private AnimationController _animationController;
+
+
+    public UnityEvent AnimateRun;
+    public UnityEvent AnimateJump;
+    public UnityEvent AnimateFlying;
+    public UnityEvent AnimateDead;
+
+
+
+
     private void Awake()
     {
         CharacterController = GetComponent<CharacterController>();
@@ -58,7 +69,13 @@ public class MoveRemi : MonoBehaviour
         {
             if (CharacterController.isGrounded && yValue < 0)
             {
+                _animationController.BackToIdle();
                 yValue = 0;
+            }
+
+            if (!CharacterController.isGrounded)
+            {
+                AnimateFlying.Invoke();
             }
 
             if (KnockedOut && _knockedOuttimer < knockedOutCooldown)
@@ -77,11 +94,14 @@ public class MoveRemi : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.LookRotation(MoveVector);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime * Rotation);
-                _animationController.ChangeAnimation("Running");
+                AnimateRun.Invoke();
             }
             else
-            {
-                _animationController.BackToIdle();
+            { 
+                if(CharacterController.isGrounded)
+                {
+                    _animationController.BackToIdle();
+                }
             }
 
             yValue -= Gravity * Time.deltaTime;
@@ -90,7 +110,10 @@ public class MoveRemi : MonoBehaviour
                 CharacterController.Move(new Vector3(MoveVector.x, yValue, MoveVector.z) * Time.deltaTime);
             }
         }
-
+        else
+        {
+            AnimateDead.Invoke();
+        }
     }
 
     public bool IsMoving()
@@ -117,6 +140,7 @@ public class MoveRemi : MonoBehaviour
     {
         if (CharacterController.isGrounded)
         {
+            AnimateJump.Invoke();
             yValue = 0;
             Debug.Log("Jumped");
             yValue += JumpForce;

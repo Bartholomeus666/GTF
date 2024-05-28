@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BasicAttack : MonoBehaviour
 {
@@ -19,14 +20,19 @@ public class BasicAttack : MonoBehaviour
 
     private GameObject _soundMeter;
     private FillUpMeter _fillUpMeterScript;
+    private MoveRemi _moveScript;
 
     public bool IsHoldingFood = false;
     public GameObject Hand;
+
+    public UnityEvent AnimateAttack;
+
 
     private void Start()
     {
         _soundMeter = GameObject.FindGameObjectWithTag("SoundMeter");
         _fillUpMeterScript = _soundMeter.GetComponent<FillUpMeter>();
+        _moveScript = GetComponent<MoveRemi>();
     }
 
 
@@ -34,10 +40,11 @@ public class BasicAttack : MonoBehaviour
     {
         Debug.Log("Attacking");
 
-        AnimationController animationController = GetComponentInChildren<AnimationController>();
-        animationController.ChangeAnimation("Attack");
-
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
+        if(_moveScript.CharacterController.isGrounded)
+        {
+            AnimateAttack.Invoke();
+        }
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -64,10 +71,6 @@ public class BasicAttack : MonoBehaviour
                 src2.Play();
 
                 _fillUpMeterScript.AddSound(5);
-
-
-
-                
             }
         }
     }

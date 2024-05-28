@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5554865525844142967}
   - component: {fileID: 5454670984514743412}
   - component: {fileID: -2964956274478266298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Ham
   m_TagString: Untagged
   m_Icon: {fileID: 0}
