@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_CheeseRound
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0fa2da636e8b2924f9fb09ee1fff0174, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8371176271065165420, guid: 0fa2da636e8b2924f9fb09ee1fff0174, type: 3}

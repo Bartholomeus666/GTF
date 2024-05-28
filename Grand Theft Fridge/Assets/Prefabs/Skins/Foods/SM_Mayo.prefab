@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4196811786369184721}
   - component: {fileID: 9216418212708045107}
   - component: {fileID: -8970117836396846157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Mayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

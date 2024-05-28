@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4196584110642923674}
   - component: {fileID: 7250961179063939937}
   - component: {fileID: 6713723942187119237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Milk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

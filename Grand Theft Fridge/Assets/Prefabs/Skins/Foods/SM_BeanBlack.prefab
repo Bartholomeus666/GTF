@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2952297193433940442}
   - component: {fileID: 8535320656750011265}
   - component: {fileID: 2333802494502292807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_BeanBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

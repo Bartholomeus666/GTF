@@ -6,69 +6,52 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     private Animator _animator;
-    private string _currentAnimation = "Idle";
 
-    private MoveRemi _moveScript;
-    private BasicAttack _basicAttackScript;
-
-    //public enum RatState
-    //{
-    //    Idle,
-    //    Running,
-    //    Attack,
-    //    Dead,
-    //    Jump,
-    //    GettingAttacked,
-    //    Falling
-    //}
-
-    //public RatState State;
-
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
-
-        _moveScript = GetComponentInParent<MoveRemi>();
-        _basicAttackScript = GetComponentInParent<BasicAttack>();
     }
 
     private void Update()
     {
-        //BackToIdle();
-        //ChangeAnimation();
+        
     }
 
-    public void ChangeAnimation(string animationName, float crossfade = 0.5f, float time = 0)
-    {
-        if (time > 0) StartCoroutine(Wait());
-        else Validate();
-
-        IEnumerator Wait()
-        {
-            yield return new WaitForSeconds(time /*- crossfade*/);
-            Validate();
-        }
-
-        void Validate()
-        {
-            if (_currentAnimation != animationName)
-            {
-                _currentAnimation = animationName;
-                if (_currentAnimation == "")
-                    _currentAnimation = "Idle";
-                else
-                    _animator.CrossFade(animationName, crossfade);
-            }
-        }
-    }
 
     public void BackToIdle()
     {
-        if(_currentAnimation == "Attack")
-        {
-            return;
-        }
+        _animator.SetBool("IsRunning", false);
+        _animator.SetBool("IsGrounded", true);
+        _animator.SetBool("IsJumping", false);
+    }
 
-        ChangeAnimation("Idle");
+    public void RunningAnimation()
+    {
+        _animator.SetBool("IsRunning", true);
+    }
+
+    public void JumpingAnimation()
+    {
+        _animator.SetBool("IsRunning", false);
+        _animator.SetBool("IsJumping", true );
+    }
+
+    public void FlyingAnimation()
+    {
+        _animator.SetBool("IsRunning", false);
+        _animator.SetBool("IsGrounded", false);
+    }
+    public void AttackAnimation()
+    {
+        _animator.SetBool("IsRunning", false);
+        _animator.SetBool("IsAttacking", true);
+    }
+
+    public void DeathAnimation()
+    {
+        _animator.SetBool("IsRunning", false);
+        _animator.SetBool("IsGrounded", true);
+        _animator.SetBool("IsJumping", false);
+        _animator.SetBool("Died", true);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1524546997343285770}
   - component: {fileID: 881378262583075158}
   - component: {fileID: 8775229699190474107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_PomegranateSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

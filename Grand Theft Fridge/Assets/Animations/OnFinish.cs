@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class OnFinish : StateMachineBehaviour
 {
-    [SerializeField] private string animation;
-
+    public string animation;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -23,7 +22,7 @@ public class OnFinish : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<AnimationController>().ChangeAnimation(animation);
+        animator.SetBool($"{animation}", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

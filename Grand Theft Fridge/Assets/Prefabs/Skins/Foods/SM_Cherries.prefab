@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3582379833696582934}
   - component: {fileID: 8461722432596370603}
   - component: {fileID: -6907118010101495446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Cherries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
