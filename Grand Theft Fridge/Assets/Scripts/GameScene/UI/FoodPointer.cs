@@ -214,6 +214,12 @@ public class FoodPointer : MonoBehaviour
                         // Set the pointer rotation to zero when the food is on-screen
                         _pointerRectTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
                     }
+
+                    if (player.GetComponent<BasicAttack>().IsHoldingFood)
+                    {
+                        GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else { GetComponent<UnityEngine.UI.Image>().enabled = true; }
                 }
             }
         }
