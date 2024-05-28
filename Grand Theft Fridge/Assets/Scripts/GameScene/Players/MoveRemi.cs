@@ -10,7 +10,7 @@ public class MoveRemi : MonoBehaviour
 
     public Vector3 MoveVector;
     [SerializeField]
-    private float Speed;
+    public float Speed;
 
     private CharacterController _characterController;
 

@@ -52,6 +52,7 @@ public class LookingForRats : MonoBehaviour
             Ray ray = new Ray(Camera.transform.position, cameraToPlayerVector.normalized);
 
             Debug.Log("Raycasting");
+            LayerMask = 1 << LayerMask;
 
             if(Physics.Raycast(ray, out RaycastHit hit, 500, LayerMask))
             {
