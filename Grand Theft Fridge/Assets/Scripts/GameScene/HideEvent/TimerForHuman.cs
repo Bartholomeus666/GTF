@@ -21,6 +21,8 @@ public class TimerForHuman : MonoBehaviour
     public bool timerRunning = false;
     public bool timerMaxedOut = false;
 
+    public GameObject Light;
+
     public GameObject UIScoreAndMeter;
     private void Awake()
     {
@@ -45,6 +47,8 @@ public class TimerForHuman : MonoBehaviour
 
                 UIScoreAndMeter.SetActive(true);
 
+                Light.SetActive(false);
+
                 // Unmute bgm
                 EnableAudioSource();
 
@@ -64,6 +68,8 @@ public class TimerForHuman : MonoBehaviour
 
     public void StartTimer()
     {
+        Light.SetActive(true);
+
         if (!timerRunning)
         {
             UIScoreAndMeter.SetActive(false);

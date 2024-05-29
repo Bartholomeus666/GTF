@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         {
             //_scoreScript = ScoreTriggers[i].gameObject.GetComponent<ScoreTrigger>();
 
-            Scores[i].text = ($"{Points[i]}/5");
+            Scores[i].text = ($"{Points[i]}/8");
         }
         CheckPositions();
     }
