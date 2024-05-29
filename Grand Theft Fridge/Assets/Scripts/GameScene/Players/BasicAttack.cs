@@ -13,7 +13,8 @@ public class BasicAttack : MonoBehaviour
     public AudioClip Punch, Squeak, PickUp;
 
     private Food _foodScript;
-    [SerializeField] private float PickUpRadius = 2;
+    [SerializeField] private float PickUpRadius = 3;
+    [SerializeField] private float AttackRadius = 2;
     [SerializeField] private float ForwardOffset = 2;
     [SerializeField] private float PushForce = 2;
 
@@ -40,7 +41,7 @@ public class BasicAttack : MonoBehaviour
     {
         Debug.Log("Attacking");
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, PickUpRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * ForwardOffset, AttackRadius);
         if(_moveScript.CharacterController.isGrounded)
         {
             AnimateAttack.Invoke();

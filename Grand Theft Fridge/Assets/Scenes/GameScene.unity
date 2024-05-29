@@ -4956,6 +4956,10 @@ PrefabInstance:
       propertyPath: pointerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 145849936659793628, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
+      propertyPath: pointerID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2775309600583547539, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
       propertyPath: m_Name
       value: PointerCanvas
@@ -6475,6 +6479,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 85782622}
     m_Modifications:
     - target: {fileID: 81785123831314161, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
+      propertyPath: pointerID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 145849936659793628, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
       propertyPath: pointerID
       value: 2
       objectReference: {fileID: 0}
@@ -10603,6 +10611,10 @@ PrefabInstance:
       propertyPath: pointerID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 145849936659793628, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
+      propertyPath: pointerID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2775309600583547539, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
       propertyPath: m_Name
       value: PointerCanvas (2)
@@ -11440,6 +11452,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 85782622}
     m_Modifications:
     - target: {fileID: 81785123831314161, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
+      propertyPath: pointerID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 145849936659793628, guid: 5bb0c0b6b9ea26b4da1fc2bc98125d5e, type: 3}
       propertyPath: pointerID
       value: 4
       objectReference: {fileID: 0}

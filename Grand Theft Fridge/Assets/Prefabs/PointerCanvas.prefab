@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3776654748199754613}
   - component: {fileID: 631403259885283161}
   - component: {fileID: 1806082309292538030}
-  - component: {fileID: 81785123831314161}
+  - component: {fileID: 145849936659793628}
   m_Layer: 5
   m_Name: FoodPointerUI1
   m_TagString: Pointer
@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 1630269015155404589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5191032155735296354}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &81785123831314161
+--- !u!114 &145849936659793628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,13 +85,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630269015155404589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2cbea1e08d99644b853fc5f7620995, type: 3}
+  m_Script: {fileID: 11500000, guid: 59a8e33f207d4a14998b6003c8a80e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentPosition: {x: 0, y: 0, z: 0}
   pointerID: 0
   PointerSprite: {fileID: 21300000, guid: 1e0dff7ea8e398e498b76658b5f6d07d, type: 3}
   ButtonSprite: {fileID: 21300000, guid: 26df430fa7bfc9748a75c62327ef54be, type: 3}
+  distanceToFood: 4
 --- !u!1 &2775309600583547539
 GameObject:
   m_ObjectHideFlags: 0

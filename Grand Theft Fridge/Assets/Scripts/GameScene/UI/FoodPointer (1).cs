@@ -21,6 +21,7 @@ public class FoodPointer : MonoBehaviour
     [SerializeField] private int pointerID;
     [SerializeField] private Sprite PointerSprite;
     [SerializeField] private Sprite ButtonSprite;
+    [SerializeField] private float distanceToFood = 3;
 
     void Start()
     {
@@ -120,63 +121,42 @@ public class FoodPointer : MonoBehaviour
                     _currentPosition = player.transform.position;
                     Vector3 toPosition = _closestFood.transform.position;
                     Vector3 direction = (toPosition - _currentPosition).normalized;
+                    float distance = (toPosition - _currentPosition).magnitude;
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;  // Adjust angle to match the UI
 
                     _pointerRectTransform.rotation = Quaternion.Euler(0f, 0f, angle);
 
                     Vector3 targetPositionScreenPoint = camera.WorldToScreenPoint(toPosition);
-                    bool isOffScreen = false;
+                    bool isCloseEnough = distance>=distanceToFood ;
                     Vector3 cappedTargetScreenPosition = targetPositionScreenPoint;
 
                     // Determine the off-screen and capped target positions based on player ID and split-screen region
-                    switch (spawnAndAssign.PlayerID)
+                    if (isCloseEnough)
                     {
-                        case 1:
-                            isOffScreen = targetPositionScreenPoint.z < 0 ||
-                                          targetPositionScreenPoint.x <= 0 || targetPositionScreenPoint.x >= Screen.width / 2 ||
-                                          targetPositionScreenPoint.y <= Screen.height / 2 || targetPositionScreenPoint.y >= Screen.height;
-                            if (isOffScreen)
-                            {
-                                cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, _borderSize, Screen.width / 2 - _borderSize);
-                                cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, Screen.height / 2 + _borderSize, Screen.height - _borderSize);
-                            }
-                            break;
-                        case 2:
-                            isOffScreen = targetPositionScreenPoint.z < 0 ||
-                                          targetPositionScreenPoint.x <= Screen.width / 2 || targetPositionScreenPoint.x >= Screen.width ||
-                                          targetPositionScreenPoint.y <= Screen.height / 2 || targetPositionScreenPoint.y >= Screen.height;
-                            if (isOffScreen)
-                            {
-                                cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, Screen.width / 2 + _borderSize, Screen.width - _borderSize);
-                                cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, Screen.height / 2 + _borderSize, Screen.height - _borderSize);
-                            }
-                            break;
-                        case 3:
-                            isOffScreen = targetPositionScreenPoint.z < 0 ||
-                                          targetPositionScreenPoint.x <= 0 || targetPositionScreenPoint.x >= Screen.width / 2 ||
-                                          targetPositionScreenPoint.y <= 0 || targetPositionScreenPoint.y >= Screen.height / 2;
-                            if (isOffScreen)
-                            {
-                                cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, _borderSize, Screen.width / 2 - _borderSize);
-                                cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, _borderSize, Screen.height / 2 - _borderSize);
-                            }
-                            break;
-                        case 4:
-                            isOffScreen = targetPositionScreenPoint.z < 0 ||
-                                          targetPositionScreenPoint.x <= Screen.width / 2 || targetPositionScreenPoint.x >= Screen.width ||
-                                          targetPositionScreenPoint.y <= 0 || targetPositionScreenPoint.y >= Screen.height / 2;
-                            if (isOffScreen)
-                            {
-                                cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, Screen.width / 2 + _borderSize, Screen.width - _borderSize);
-                                cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, _borderSize, Screen.height / 2 - _borderSize);
-                            }
-                            break;
-                        default:
-                            isOffScreen = true;
-                            break;
+                        switch (spawnAndAssign.PlayerID)
+                        {
+                            case 1:
+                                    cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, _borderSize, Screen.width / 2 - _borderSize);
+                                    cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, Screen.height / 2 + _borderSize, Screen.height - _borderSize);
+                                break;
+                            case 2:
+                                    cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, Screen.width / 2 + _borderSize, Screen.width - _borderSize);
+                                    cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, Screen.height / 2 + _borderSize, Screen.height - _borderSize);
+                                break;
+                            case 3:
+                               
+                                    cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, _borderSize, Screen.width / 2 - _borderSize);
+                                    cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, _borderSize, Screen.height / 2 - _borderSize);
+                                break;
+                            case 4:
+                                    cappedTargetScreenPosition.x = Mathf.Clamp(cappedTargetScreenPosition.x, Screen.width / 2 + _borderSize, Screen.width - _borderSize);
+                                    cappedTargetScreenPosition.y = Mathf.Clamp(cappedTargetScreenPosition.y, _borderSize, Screen.height / 2 - _borderSize);
+                                break;
+                        }
                     }
+                 
 
-                    if (isOffScreen)
+                    if (isCloseEnough)
                     {
 
                         GetComponent<UnityEngine.UI.Image>().enabled = true;

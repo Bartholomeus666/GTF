@@ -686,7 +686,8 @@ MonoBehaviour:
   Punch: {fileID: 8300000, guid: 387ee1248a927c0459bdf09da182b495, type: 3}
   Squeak: {fileID: 8300000, guid: 9d7e09c37bb0a324baf3c563a4e34555, type: 3}
   PickUp: {fileID: 8300000, guid: 3cdabbd7c20b0e44aaa59fcbbc32ddb5, type: 3}
-  PickUpRadius: 1.21
+  PickUpRadius: 2
+  AttackRadius: 1.21
   ForwardOffset: 2
   PushForce: 10
   IsHoldingFood: 0
