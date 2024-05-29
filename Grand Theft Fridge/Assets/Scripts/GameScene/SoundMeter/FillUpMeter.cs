@@ -33,8 +33,7 @@ public class FillUpMeter : MonoBehaviour
 
     private void GetCurrentFill()
     {
-        float fillAmount = (float)currentSound / (float)maxSound;
-        Mask.fillAmount = fillAmount;
+        Mask.transform.eulerAngles = new Vector3 (0f, 0f, 90 - (180* currentSound)/100);
     }
 
     public void AddSound(int amountOfSound)
