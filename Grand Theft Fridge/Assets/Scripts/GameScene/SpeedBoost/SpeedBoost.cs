@@ -11,6 +11,8 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private float _newSpeedValue = 100f;
     [SerializeField] private float _boostTime = 2;
     private float _initialSpeedValue;
+    [SerializeField] private GameObject trail;
+    private GameObject _ratTrail;
 
 
 
@@ -22,6 +24,7 @@ public class SpeedBoost : MonoBehaviour
             MoveRemi moveRemi = other.GetComponent<MoveRemi>();
             if (moveRemi != null)
             {
+                _ratTrail = Instantiate(trail, other.transform);
                 // Storing the initial speed value
                 _initialSpeedValue = moveRemi.Speed;
                 Debug.Log(moveRemi.Speed);
@@ -47,6 +50,7 @@ public class SpeedBoost : MonoBehaviour
         yield return new WaitForSeconds(5f);
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         gameObject.GetComponent<MeshCollider>().enabled = true;
+
     }
 
     IEnumerator RevertSpeed(MoveRemi moveRemi)
@@ -54,6 +58,7 @@ public class SpeedBoost : MonoBehaviour
         yield return new WaitForSeconds(_boostTime);
         moveRemi.Speed = _initialSpeedValue;
         Debug.Log(moveRemi.Speed);
+        Destroy(_ratTrail);
         // Going back to initial speed from before item
     }
 }
