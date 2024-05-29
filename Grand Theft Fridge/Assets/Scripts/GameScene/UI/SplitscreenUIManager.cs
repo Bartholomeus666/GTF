@@ -8,6 +8,7 @@ public class SplitscreenUIManager : MonoBehaviour
     private int _counter = 0;
     public GameObject VerticalLine;
     public GameObject HorizontalLine;
+    public GameObject NoOne;
 
     [SerializeField] private GameObject[] playerPanels = new GameObject[4];
 
@@ -18,6 +19,7 @@ public class SplitscreenUIManager : MonoBehaviour
         if(_counter == 2)
         {
             VerticalLine.SetActive(true);
+            NoOne.SetActive(false);
         }
         else if (_counter == 3)
         {

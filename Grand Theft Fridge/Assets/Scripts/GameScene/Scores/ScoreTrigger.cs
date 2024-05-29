@@ -62,7 +62,7 @@ public class ScoreTrigger : MonoBehaviour
     {
         _scoreManager.Points[playerNr - 1]++;
 
-        if(_scoreManager.Points[playerNr - 1] == 10)
+        if(_scoreManager.Points[playerNr - 1] == 8)
         {
             PlayerPrefs.SetInt("Winner", playerNr);
             SceneManager.LoadScene("StatsScene");
