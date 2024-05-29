@@ -30,24 +30,30 @@ public class SpeedBoost : MonoBehaviour
                 Debug.Log(moveRemi.Speed);
                 // Start coroutine to revert speed back to initial value after x amount of seconds
                 StartCoroutine(RevertSpeed(moveRemi));
-                // Destroying the item
-                gameObject.GetComponent<MeshRenderer>().enabled
-                    = false;
-              
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponent<MeshCollider>().enabled = false;
+                StartCoroutine(Respawn());
             }
-       
         }
     }
 
-     IEnumerator RevertSpeed(MoveRemi moveRemi)
+    void Update()
+    {
+        transform.eulerAngles = new(0f, transform.eulerAngles.y + Time.deltaTime * 50f, 0f);
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponent<MeshCollider>().enabled = true;
+    }
+
+    IEnumerator RevertSpeed(MoveRemi moveRemi)
     {
         yield return new WaitForSeconds(_boostTime);
         moveRemi.Speed = _initialSpeedValue;
         Debug.Log(moveRemi.Speed);
-        Destroy(gameObject);
-
         // Going back to initial speed from before item
-
-
     }
 }

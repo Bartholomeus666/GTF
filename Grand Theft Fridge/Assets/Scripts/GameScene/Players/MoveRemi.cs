@@ -169,7 +169,7 @@ public class MoveRemi : MonoBehaviour
         spawnPointData = respawnCollection.GetComponent<SpawnPointData>();
         SpawnAndAssign spawnScript = GetComponent<SpawnAndAssign>();
 
-        transform.position = spawnPointData.GetSpawnPoints(spawnScript.PlayerID).transform.position;
+        transform.position = spawnPointData.GetSpawnPoints(spawnScript.PlayerID - 1).transform.position;
         //transform.position = Vector3.MoveTowards(transform.position, spawnPointData.GetSpawnPoints(spawnScript.PlayerID - 1).transform.position, 1);
     }
 }

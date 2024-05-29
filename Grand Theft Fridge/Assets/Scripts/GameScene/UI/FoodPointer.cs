@@ -3,9 +3,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.GraphicsBuffer;
-using Image = UnityEngine.UIElements.Image;
 
 public class FoodPointer : MonoBehaviour
 {

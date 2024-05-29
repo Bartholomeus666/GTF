@@ -88,17 +88,18 @@ public class BasicAttack : MonoBehaviour
 
                 if (c.tag == "Interactable")
                 {
-                    Debug.Log("Food found!");
-
-                    //Play pickup sound
-                    src3.clip = PickUp;
-                    src3.Play();
-
-                    IsHoldingFood = true;
                     Food foodScript = c.gameObject.GetComponent<Food>();
-                    if(!foodScript.Grabbed)
+
+                    if (!foodScript.Grabbed)
                     {
                         foodScript.Grabbed = true;
+                        Debug.Log("Food found!");
+
+                        //Play pickup sound
+                        src3.clip = PickUp;
+                        src3.Play();
+
+                        IsHoldingFood = true;
                         //c.transform.position = Hand.transform.position;
                         //foodScript.Player = Hand;
                         foodScript.Player = this.gameObject;
