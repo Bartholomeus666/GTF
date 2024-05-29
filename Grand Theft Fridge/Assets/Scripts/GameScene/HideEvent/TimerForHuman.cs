@@ -10,7 +10,7 @@ public class TimerForHuman : MonoBehaviour
 
     public UnityEvent LookingForRats;
 
-    public AudioSource src;
+    public AudioSource src1;
     public AudioClip Alarm;
     public AudioSource bgm;
 
@@ -47,7 +47,7 @@ public class TimerForHuman : MonoBehaviour
 
                 // Unmute bgm
                 EnableAudioSource();
-
+                src1.Stop();
                 LookingForRats.Invoke();
             }
             else
@@ -73,8 +73,8 @@ public class TimerForHuman : MonoBehaviour
             timerTime = 0;
 
             //Play Alarm and mute bgm
-            src.clip = Alarm;
-            src.Play();
+            src1.clip = Alarm;
+            src1.Play();
             DisableAudioSource();
 
             Debug.Log("Timer started");

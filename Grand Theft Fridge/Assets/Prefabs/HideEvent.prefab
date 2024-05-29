@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7771284003657655067}
   - component: {fileID: 8174079432213713141}
   m_Layer: 0
-  m_Name: srcHide
+  m_Name: srcHide1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,8 +178,8 @@ MonoBehaviour:
   LookingForRats:
     m_PersistentCalls:
       m_Calls: []
-  src: {fileID: 8174079432213713141}
-  Alarm: {fileID: 8300000, guid: 90e1de4e27cd78a46b2dbe404892d4bb, type: 3}
+  src1: {fileID: 8174079432213713141}
+  Alarm: {fileID: 8300000, guid: 3e96d9453f5041242b763d9b1926d113, type: 3}
   bgm: {fileID: 0}
   timerRunning: 0
   timerMaxedOut: 0

@@ -10,6 +10,9 @@ public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] private float _newSpeedValue = 100f;
     [SerializeField] private float _boostTime = 2;
+
+    public AudioSource src;
+    public AudioClip _speed;
     private float _initialSpeedValue;
 
 
@@ -18,6 +21,9 @@ public class SpeedBoost : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            src.clip = _speed;
+            src.Play();
+
             // Getting speed value from MoveRemi script
             MoveRemi moveRemi = other.GetComponent<MoveRemi>();
             if (moveRemi != null)
