@@ -266,6 +266,8 @@ MonoBehaviour:
   _newSpeedValue: 14
   _boostTime: 4
   trail: {fileID: 7469258104280421354, guid: d4ba42a93bcb58d4dad0233351c870cb, type: 3}
+  src: {fileID: 3583852980151252759}
+  _speedSound: {fileID: 8300000, guid: 301981f0e1d3e6544883459568679308, type: 3}
 --- !u!4 &819954013658326430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2071511194043954626, guid: 7f789138461ddc74c9ac4047b5d4e06a, type: 3}
