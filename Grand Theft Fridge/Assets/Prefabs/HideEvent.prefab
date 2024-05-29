@@ -179,10 +179,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   src: {fileID: 8174079432213713141}
-  Alarm: {fileID: 8300000, guid: 90e1de4e27cd78a46b2dbe404892d4bb, type: 3}
+  Alarm: {fileID: 8300000, guid: 3e96d9453f5041242b763d9b1926d113, type: 3}
   bgm: {fileID: 0}
   timerRunning: 0
   timerMaxedOut: 0
+  Light: {fileID: 0}
   UIScoreAndMeter: {fileID: 0}
 --- !u!114 &-2739813573931602801
 MonoBehaviour:
