@@ -14,12 +14,18 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private GameObject trail;
     private GameObject _ratTrail;
 
+    public AudioSource src;
+    public AudioClip _speedSound;
+
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            src.clip = _speedSound;
+            src.Play();
+
             // Getting speed value from MoveRemi script
             MoveRemi moveRemi = other.GetComponent<MoveRemi>();
             if (moveRemi != null)

@@ -49,6 +49,7 @@ public class TimerForHuman : MonoBehaviour
 
                 Light.SetActive(false);
 
+                src.Stop();
                 // Unmute bgm
                 EnableAudioSource();
 
